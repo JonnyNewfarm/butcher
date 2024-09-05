@@ -74,7 +74,7 @@ export const products = [
       {
         color: "Black",
         colorCode: "#000000",
-        image: "https://m.media-amazon.com/images/I/61g+McQpg7L._AC_SX679_.jpg",
+        image: "https://m.media-amazon.com/images/I/713Om9vCHUL._AC_SX679_.jpg",
       },
       {
         color: "Blue",
