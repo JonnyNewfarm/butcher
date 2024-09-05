@@ -8,6 +8,7 @@ import ProductDetailsImg from "./ProductDetailsImg";
 import SetQuantity from "./SetQuantity";
 import { useCart } from "@/hooks/useProductCart";
 import { MdCheckCircle } from "react-icons/md";
+import { useRouter } from "next/navigation";
 
 interface ProductDetailProps {
   product: any;
@@ -16,11 +17,11 @@ interface ProductDetailProps {
 export type ProductType = {
   id: string;
   name: string;
-  description?: string;
-  category?: string;
+  description: string;
+  category: string;
   selectedImage: selectedImageType;
   quantity: number;
-  price?: number;
+  price: number;
 };
 
 export type selectedImageType = {
@@ -33,6 +34,7 @@ const HR = () => {
 const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
   const { handleAddToCart, cartProducts } = useCart();
   const [alreadyInCart, setAlreadyInCart] = useState(false);
+  const router = useRouter();
   console.log(cartProducts);
   const [cartProduct, setCartProduct] = useState<ProductType>({
     id: product.id,
@@ -119,6 +121,9 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
               <MdCheckCircle />
               <span>Product already add to cart</span>
             </p>
+            <div>
+              <Button onClick={() => router.push("/cart")} label="View cart" />
+            </div>
           </>
         ) : (
           <>

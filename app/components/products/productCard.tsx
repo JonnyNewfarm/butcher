@@ -5,6 +5,8 @@ import { truncateText } from "@/utils/truncateText";
 import { Rating } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useCallback } from "react";
+import { selectedImageType } from "./ProductDetails";
 
 interface ProductCardProps {
   data: any;
