@@ -2,6 +2,7 @@
 import React from "react";
 import Container from "../Container";
 import Link from "next/link";
+import CartCounter from "./CartCounter";
 
 const NavBar = () => {
   return (
@@ -14,7 +15,7 @@ const NavBar = () => {
             </Link>
             <div className="hidden md:block">Search</div>
             <div className="flex items-center gap-8 md:gap-10">
-              <div>Cart count</div>
+              <CartCounter />
               <div>User menu</div>
             </div>
           </div>

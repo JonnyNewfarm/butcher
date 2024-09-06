@@ -5,9 +5,11 @@ import React from "react";
 import Button from "../Button";
 import { MdArrowBack } from "react-icons/md";
 import CartItems from "./CartItems";
+import { formatPrice } from "@/utils/foramtPrice";
 
 const ProductCartClient = () => {
   const { cartProducts, handleClearCart } = useCart();
+  const { totalAmount } = useCart();
   if (!cartProducts || cartProducts.length === 0) {
     return (
       <div className="flex flex-col items-center">
@@ -52,7 +54,7 @@ const ProductCartClient = () => {
         <div className="text-sm flex flex-col gap-1 items-start">
           <div className="flex w-full justify-between font-semibold">
             <span>Subtotal</span>
-            <span>$5657</span>
+            <span>{formatPrice(totalAmount)}</span>
           </div>
 
           <p className="text-slate-600">

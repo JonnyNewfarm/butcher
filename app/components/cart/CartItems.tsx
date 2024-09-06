@@ -62,7 +62,7 @@ const CartItems = ({ item }: CartItemsProps) => {
         />
       </div>
       <div className="justify-self-end font-semibold">
-        ${item.price * item.quantity}
+        {formatPrice(item.price * item.quantity)}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 "use client";
 import { ProductType } from "@/app/components/products/ProductDetails";
-import { product } from "@/utils/product";
+
 import {
   createContext,
   useCallback,
@@ -11,6 +11,7 @@ import {
 
 type ProductCartContextType = {
   totalQuantity: number;
+  totalAmount: number;
   cartProducts: ProductType[] | null;
   handleAddToCart: (product: ProductType) => void;
   handleRemoveFromCart: (product: ProductType) => void;
@@ -28,14 +29,38 @@ interface Props {
 }
 
 export const CartContextProvider = (props: Props) => {
-  const [totalQuantity, setTotalQuantity] = useState(10);
+  const [totalQuantity, setTotalQuantity] = useState(0);
   const [cartProducts, setCartProducts] = useState<ProductType[] | null>(null);
+  const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     const cartItems: any = localStorage.getItem("cartItems");
     const products: ProductType[] | null = JSON.parse(cartItems);
     setCartProducts(products);
   }, []);
+
+  useEffect(() => {
+    const getTotal = () => {
+      if (cartProducts) {
+        const { total, quantity } = cartProducts?.reduce(
+          (acc, item) => {
+            const itemTotal = item.price * item.quantity;
+
+            acc.total += itemTotal;
+            acc.quantity += item.quantity;
+            return acc;
+          },
+          {
+            total: 0,
+            quantity: 0,
+          }
+        );
+        setTotalQuantity(quantity);
+        setTotalAmount(total);
+      }
+    };
+    getTotal();
+  }, [cartProducts]);
 
   const handleAddToCart = useCallback((product: ProductType) => {
     setCartProducts((prev) => {
@@ -110,6 +135,7 @@ export const CartContextProvider = (props: Props) => {
 
   const cartValue = {
     totalQuantity,
+    totalAmount,
     cartProducts,
     handleAddToCart,
     handleRemoveFromCart,

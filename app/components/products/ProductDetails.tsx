@@ -35,7 +35,7 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
   const { handleAddToCart, cartProducts } = useCart();
   const [alreadyInCart, setAlreadyInCart] = useState(false);
   const router = useRouter();
-  console.log(cartProducts);
+
   const [cartProduct, setCartProduct] = useState<ProductType>({
     id: product.id,
     name: product.name,
