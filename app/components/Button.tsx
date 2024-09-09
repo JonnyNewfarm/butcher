@@ -30,11 +30,12 @@ const Button = ({
         rounded-md
         hover:opacity-80
         transition
-        w-[80%]
+        w-[100%]
         border-slate-700
         items-center
         justify-center
         gap-2
+        flex
         ${outline ? "bg-white " : "bg-slate-700"}
         ${outline ? "text-slate-700" : "text-white"}
         ${small ? "text-sm font-light" : "text-md font-semibold"}
@@ -44,7 +45,7 @@ const Button = ({
     
     `}
     >
-      {Icon && <Icon size={24} />}
+      {Icon && <Icon size={22} />}
       {label}
     </button>
   );

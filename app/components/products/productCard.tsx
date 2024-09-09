@@ -55,7 +55,7 @@ const productCard = ({ data }: ProductCardProps) => {
         </div>
         <div className="mt-4">{truncateText(data.name)}</div>
         <div>
-          <Rating value={ratingAverage} readOnly />
+          <Rating className="text-black" value={ratingAverage} readOnly />
         </div>
         <div>{data.reviews.length} reviews</div>
         <div className="font-semibold">{formatPrice(data.price)}</div>
