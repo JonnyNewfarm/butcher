@@ -6,6 +6,7 @@ import Button from "../Button";
 import { MdArrowBack } from "react-icons/md";
 import CartItems from "./CartItems";
 import { formatPrice } from "@/utils/foramtPrice";
+import { Toaster } from "react-hot-toast";
 
 const ProductCartClient = () => {
   const { cartProducts, handleClearCart } = useCart();
@@ -25,6 +26,7 @@ const ProductCartClient = () => {
 
   return (
     <div>
+      <Toaster />
       <div className="text-2xl text-center font-semibold mb-8">Your cart</div>
       <div className="grid grid-cols-5 text-xs gap-4 pb-2 items-center">
         <div className="col-span-2 justify-self-start">Product</div>
