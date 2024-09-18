@@ -17,7 +17,7 @@ if(!session?.user?.email) {
 
 const currentUser = await prisma.user.findUnique({
     where: {
-        email: session.user?.email
+        email: session.user.email
     }
 });
 if(!currentUser) {
@@ -31,6 +31,6 @@ return {
     emailVertified: currentUser.emailVerified?.toISOString() || null,
 }
     } catch(error: any) {
-
+return null
     }
 }
