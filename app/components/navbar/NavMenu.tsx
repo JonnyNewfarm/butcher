@@ -9,7 +9,7 @@ import { User } from "@prisma/client";
 import { safeUser } from "@/types";
 
 interface NavMenuProps {
-  currentUser: safeUser;
+  currentUser: safeUser | null;
 }
 
 const NavMenu = ({ currentUser }: NavMenuProps) => {
@@ -21,7 +21,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
     <>
       <div className="relative z-30">
         <div onClick={OpenMenu}>
-          <Avatar />
+          <Avatar src={currentUser?.image} />
 
           {isOpen && (
             <div
@@ -46,6 +46,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
                   <Link href={"/orders"}>
                     <MenuItem onClick={OpenMenu}>Your orders</MenuItem>
                   </Link>
+                  <hr />
                   <MenuItem
                     onClick={() => {
                       OpenMenu();
