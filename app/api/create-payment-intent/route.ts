@@ -1,15 +1,16 @@
 'use server'
-import Stripe from 'stripe'
+
 import {prisma} from '@/prisma/prisma'
 import { ProductType } from '@/app/components/products/ProductDetails'
 import { getLoggedInUser } from '@/actions/getLoggedInUser';
 import { NextRequest, NextResponse } from 'next/server';
 import { CartProductType } from '@prisma/client';
+import { stripe } from '@/libs/stripe';
 
 
 
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
     
 
 
