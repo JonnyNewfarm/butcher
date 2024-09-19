@@ -10,9 +10,9 @@ import { loadStripe, StripeElementsOptions } from "@stripe/stripe-js";
 import CheckoutFormEl from "./CheckoutFormEl";
 import Button from "../components/Button";
 
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
-);
+// Make sure to call loadStripe outside of a component’s render to avoid
+// recreating the Stripe object on every render.
+// This is your test publishable API key.
 
 const CheckoutClient = () => {
   const { cartProducts, paymentIntent, handleSetPaymentIntent } = useCart();
@@ -20,38 +20,54 @@ const CheckoutClient = () => {
   const [error, setError] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+
   const router = useRouter();
-  console.log("ClientSecret", clientSecret);
-  console.log("paymentIntent", paymentIntent);
+
+  console.log("cartProducts: ", cartProducts);
+  console.log("paymentIntent: ", paymentIntent);
+  console.log("clientSecret: ", clientSecret);
 
   useEffect(() => {
+    //create a paymentIntent as soon as the page loads
     if (cartProducts) {
       setLoading(true);
       setError(false);
+      toast.error("Step 0");
 
+      // Perform fetch /api/create-payment-intent
       fetch("/api/create-payment-intent", {
+        // make req POST
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-type": "application/json" },
+        // If we dont have payment-intent, we create and return it. If we have payment-intent, we update and return it
         body: JSON.stringify({
           items: cartProducts,
           payment_intent_id: paymentIntent,
         }),
       })
         .then((res) => {
+          console.log(res);
+          toast.error("Step 1");
           setLoading(false);
+          // if response is error: unauthorized, push user to login
           if (res.status === 401) {
-            return router.push("/");
+            return router.push("/login");
           }
+
+          // return req we get from the above api
           return res.json();
         })
         .then((data) => {
+          toast.error("Step 2");
+          // get paymentIntent.client_secret,
           setClientSecret(data.paymentIntent.client_secret);
+          // set paymentIntent or update it
           handleSetPaymentIntent(data.paymentIntent.id);
         })
         .catch((error) => {
           setError(true);
-          console.log("Error", error);
-          toast.error("ups");
+          console.log("Error: ", error);
+          toast.error("Something went wrong");
         });
     }
   }, [cartProducts, paymentIntent]);
@@ -67,25 +83,28 @@ const CheckoutClient = () => {
   const handleSetPaymentSuccess = useCallback((value: boolean) => {
     setPaymentSuccess(value);
   }, []);
+
   return (
     <div className="w-full">
-      {clientSecret && cartProducts && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutFormEl
-            clientSecret={clientSecret}
-            handleSetPaymentSuccess={handleSetPaymentSuccess}
-          />
-        </Elements>
+      {clientSecret && cartProducts && <div>dsd</div>}
+      {/* payment is loading */}
+      {loading && <div className="text-center">Loading Checkout . . .</div>}
+      {/* error */}
+      {error && (
+        <div className="text-center text-rose-500">
+          Something went wrong . . .
+        </div>
       )}
-
-      {loading && <div className="text-center">Loading </div>}
-      {error && <div className="text-center text-rose-400">Error </div>}
+      {/* payment is success */}
       {paymentSuccess && (
-        <div>
-          <div>Payment success</div>
-          <div></div>
-
-          <Button label="View your orders" onClick={() => router.push("/")} />
+        <div className="flex items-center flex flex-col gap-4">
+          <div className="text-teal-500 text-center">Payment Success</div>
+          <div className="max-w-[220px] w-full">
+            <Button
+              label="View Your Orders"
+              onClick={() => router.push("/order")}
+            />
+          </div>
         </div>
       )}
     </div>
