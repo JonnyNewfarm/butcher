@@ -1,102 +1,76 @@
 import Stripe from 'stripe';
 import prisma from '@/libs/prismadb'
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { ProductType } from '@/app/components/products/ProductDetails'; 
 import { getLoggedInUser } from '@/actions/getLoggedInUser';
 
-// TUTORIAL DOC:
-// https://docs.stripe.com/payments/quickstart?client=react&lang=node
-// Custom payment flow
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: '2024-06-20',
-});
 
-const calculateOrderAmount = (items: ProductType[]) => {
-  const totalPrice = items.reduce((acc: any, item) => {
-    const itemTotal = item.price * item.quantity;
 
-    return acc + itemTotal;
-  }, 0);
-
-  const price: any = Math.floor(totalPrice);
-
-  return price;
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
-export async function POST(request: Request) {
-  const currentUser = await getLoggedInUser();
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
 
-  // Check have user or not
-  if (!currentUser) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
+
+const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!, {
+  typescript: true
+});
+
+export async function POST(req: NextRequest) {
+  
+  try{
+const { cartProducts, customer } = await req.json();
+
+if (!cartProducts || !customer) {
+  return new NextResponse("Not enough data to checkout", { status: 400 });
+}
+
+
+
+const session = await stripe.checkout.sessions.create({
+  payment_method_types: ["card"],
+  mode: "payment",
+  shipping_address_collection: {
+    allowed_countries: ["US", "CA"],
+  },
+  shipping_options: [
+    { shipping_rate: "shr_1Q0stNIrB6c4Ijomad4myhml" },
+    { shipping_rate: "shr_1Q0suBIrB6c4IjomlPeUPP1q" },
+  ],
+  line_items: cartProducts.map((cartItem: any) => ({
+    price_data: {
+      currency: "usd",
+      product_data: {
+        name: cartItem.name,
+        metadata: {
+          productId: cartItem.id,
+        
+        },
+      },
+      unit_amount: cartItem.price * 100,
+    },
+    quantity: cartItem.quantity,
+  })),
+  client_reference_id: customer.currentUserId,
+  
+  
+  success_url: `${process.env.ECOMMERCE_STORE_URL}/payment_success`,
+  cancel_url: `${process.env.ECOMMERCE_STORE_URL}/cart`,
+});
+
+return NextResponse.json(session, { headers: corsHeaders });
+
+  }catch(err) {
+    console.log('webhooks-error',err)
+    return new NextResponse("Internal server error", {status: 500})
   }
-
-  const body = await request.json();
-  const { items, payment_intent_id } = body;
-  const total = calculateOrderAmount(items) * 100;
-  const orderData = {
-    user: { connect: { id: currentUser.id } },
-    amount: total,
-    currency: 'usd',
-    status: 'pending',
-    deliveryStatus: 'pending',
-    paymentIntentId: payment_intent_id,
-    products: items,
-  };
-
-  if (payment_intent_id) {
-    const current_Intent = await stripe.paymentIntents.retrieve(
-      payment_intent_id
-    );
-
-    if (current_Intent) {
-      const updated_intent = await stripe.paymentIntents.update(
-        payment_intent_id,
-        { amount: total }
-      );
-
-      // Update the order
-      const [existing_order, update_order] = await Promise.all([
-        // check order here exist
-        prisma.order.findFirst({
-          where: { paymentIntentId: payment_intent_id },
-        }),
-        // then updating here
-        prisma.order.update({
-          where: { paymentIntentId: payment_intent_id },
-          data: {
-            amount: total,
-            products: items,
-          },
-        }),
-      ]);
-
-      if (!existing_order) {
-        return NextResponse.json(
-          { error: 'Invalid Payment Intent' },
-          { status: 400 }
-        );
-      }
-
-      return NextResponse.json({ paymentIntent: updated_intent });
-    }
-  } else {
-    // Create the payment intent
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: total,
-      currency: 'usd',
-      automatic_payment_methods: { enabled: true },
-    });
-
-    // Create the order
-    orderData.paymentIntentId = paymentIntent.id;
-
-    await prisma.order.create({
-      data: orderData,
-    });
-
-    return NextResponse.json({ paymentIntent });
-  }
+  
 }
 

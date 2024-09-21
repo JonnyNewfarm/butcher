@@ -29,7 +29,10 @@ return {
     createdAt: currentUser.createdAt.toISOString(),
     updatedAt: currentUser.updatedAt.toISOString(),
     emailVertified: currentUser.emailVerified?.toISOString() || null,
+    
 }
+
+
     } catch(error: any) {
 return null
     }
