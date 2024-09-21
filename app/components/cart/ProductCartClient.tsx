@@ -7,10 +7,46 @@ import { MdArrowBack } from "react-icons/md";
 import CartItems from "./CartItems";
 import { formatPrice } from "@/utils/foramtPrice";
 import { Toaster } from "react-hot-toast";
+import { getLoggedInUser } from "@/actions/getLoggedInUser";
+import { useRouter } from "next/navigation";
+import { safeUser } from "@/types";
 
-const ProductCartClient = () => {
+interface ProcuctCartProps {
+  currentUser: safeUser | null;
+}
+
+const ProductCartClient = ({ currentUser }: ProcuctCartProps) => {
   const { cartProducts, handleClearCart } = useCart();
   const { totalAmount } = useCart();
+
+  const router = useRouter();
+  console.log(currentUser);
+  const customer = {
+    currentUserId: currentUser?.id,
+    currentUserEmail: currentUser?.email,
+    currentUserName: currentUser?.name,
+  };
+  const handleCheckout = async () => {
+    try {
+      if (!currentUser) {
+        router.push("/login");
+      } else {
+        const res = await fetch("/api/create-payment-intent", {
+          method: "POST",
+
+          body: JSON.stringify({
+            cartProducts: cartProducts,
+            customer: customer,
+          }),
+        });
+        const data = await res.json();
+        window.location.href = data.url;
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   if (!cartProducts || cartProducts.length === 0) {
     return (
       <div className="flex flex-col items-center">
@@ -62,7 +98,7 @@ const ProductCartClient = () => {
           <p className="text-slate-600">
             Taxes and cost of shipping calculated at checkout
           </p>
-          <Button label="Checkout" onClick={() => {}} />
+          <Button label="Checkout" onClick={handleCheckout} />
 
           <Link href={"/"} className="flex items-center gap-1 mt-2">
             <MdArrowBack />
