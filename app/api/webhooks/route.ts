@@ -51,7 +51,8 @@ country: session?.shipping_details?.address?.country,
         return {
             product: item.price.product.metadata.productId,
             quantity: item.quantity,
-            color: item.price.product.metadata.color
+            color: item.price.product.metadata.color,
+            size: item.price.product.metadata.size
             
         }
     })
