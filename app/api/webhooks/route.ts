@@ -2,7 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Stripe from 'stripe'
 import prisma from '@/libs/prismadb';
-import { MdUpdate } from 'react-icons/md';
+
+
 
 
 export const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!, {
@@ -25,6 +26,8 @@ if(event.type === "checkout.session.completed"){
 
     const customerInfo = {
         currentUserId: session?.client_reference_id,
+        name: session?.customer_details?.name,
+        email: session?.customer_details?.email,
        }
 
     const shippingAddress = {
@@ -48,6 +51,8 @@ country: session?.shipping_details?.address?.country,
         return {
             product: item.price.product.metadata.productId,
             quantity: item.quantity,
+            color: item.price.product.metadata.color
+            
         }
     })
 
@@ -57,9 +62,12 @@ country: session?.shipping_details?.address?.country,
 const newOrder = {
             
     userId: customerInfo.currentUserId!,
+    name: customerInfo.name,
+    email: customerInfo.email,
     products: orderItems,
     address:  shippingAddress,
     totalAmount: session.amount_total ? session.amount_total / 100 : 0, 
+    
     
 
 }
