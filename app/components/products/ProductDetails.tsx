@@ -9,6 +9,7 @@ import SetQuantity from "./SetQuantity";
 import { useCart } from "@/hooks/useProductCart";
 import { MdCheckCircle } from "react-icons/md";
 import { useRouter } from "next/navigation";
+import SetColor from "./SetColor";
 
 interface ProductDetailProps {
   product: any;
@@ -26,6 +27,8 @@ export type ProductType = {
 
 export type selectedImageType = {
   image: string;
+  color: string;
+  colorCode: string;
 };
 
 const HR = () => {
@@ -59,6 +62,15 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
       }
     }
   }, [cartProducts]);
+
+  const handleColorSelect = useCallback(
+    (value: selectedImageType) => {
+      setCartProduct((prev) => {
+        return { ...prev, selectedImage: value };
+      });
+    },
+    [cartProduct.selectedImage]
+  );
 
   const handleImageSelector = useCallback(
     (value: selectedImageType) => {
@@ -127,6 +139,11 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
           </>
         ) : (
           <>
+            <SetColor
+              cartProduct={cartProduct}
+              images={product.images}
+              handleColorSelect={handleColorSelect}
+            />
             <SetQuantity
               cartProduct={cartProduct}
               handleCartDecrease={handleCartDecrease}

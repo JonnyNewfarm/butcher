@@ -49,7 +49,12 @@ max-h-[500px]
               className="relative w-[80%] aspect-square rounded border-black"
               key={image.image}
             >
-              <Image fill src={image.image} alt={image.image} />
+              <Image
+                className="object-contain"
+                fill
+                src={image.image}
+                alt={image.image}
+              />
             </div>
           );
         })}

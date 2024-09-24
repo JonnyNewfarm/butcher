@@ -38,18 +38,22 @@ model User {
     hashedPassword String?
     createdAt      DateTime? @default(now())
     updatedAt      DateTime? @updatedAt
-    role           Role?     @default(USER)
+    role           Role      @default(USER)
     orders         Order[]
 
     accounts Account[]
 }
 
 model Order {
-    id          String    @id @default(auto()) @map("_id") @db.ObjectId
-    userId      String    @db.ObjectId
-    totalAmount Float?
-    createdAt   DateTime? @default(now())
-    updatedAt   DateTime? @updatedAt
+    id             String    @id @default(auto()) @map("_id") @db.ObjectId
+    userId         String    @db.ObjectId
+    totalAmount    Float?
+    createdAt      DateTime? @default(now())
+    updatedAt      DateTime? @updatedAt
+    name           String?
+    email          String?
+    status         String?
+    deliveryStatus String?
 
     products CartProductType[]
     address  shippingAddress?
@@ -63,15 +67,16 @@ type CartProductType {
     product       String?
     description   String?
     category      String?
-    selectedImage Image?
+    selectedImage image?
     quantity      Int?
     price         Float?
+    color         String?
 }
 
-type Image {
-    Image     String
-    color     String
-    colorCode String
+type image {
+    image     String
+    color     String?
+    colorCode String?
 }
 
 type shippingAddress {
@@ -89,12 +94,12 @@ enum Role {
 }
 
 model Product {
-    id          String   @id @default(auto()) @map("_id") @db.ObjectId
-    name        String?
-    description String?
-    price       Float?
+    id          String  @id @default(auto()) @map("_id") @db.ObjectId
+    name        String
+    description String
+    price       Float
     brand       String?
-    category    String?
-    inStock     Boolean?
-    images      Image[]
+    category    String
+    inStock     Boolean
+    images      image[]
 }

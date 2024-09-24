@@ -51,12 +51,15 @@ const session = await stripe.checkout.sessions.create({
         name: cartItem.name,
         metadata: {
           productId: cartItem.id,
+          color: cartItem.selectedImage.color
+
         
         },
       },
       unit_amount: cartItem.price * 100,
     },
     quantity: cartItem.quantity,
+    
   })),
   client_reference_id: customer.currentUserId,
   
