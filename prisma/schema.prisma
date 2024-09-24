@@ -54,6 +54,7 @@ model Order {
     email          String?
     status         String?
     deliveryStatus String?
+    size           String?
 
     products CartProductType[]
     address  shippingAddress?
@@ -71,6 +72,7 @@ type CartProductType {
     quantity      Int?
     price         Float?
     color         String?
+    size          String?
 }
 
 type image {

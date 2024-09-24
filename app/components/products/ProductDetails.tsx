@@ -2,6 +2,7 @@
 
 import { Rating } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 import Button from "../Button";
 import ProductDetailsImg from "./ProductDetailsImg";
@@ -10,6 +11,13 @@ import { useCart } from "@/hooks/useProductCart";
 import { MdCheckCircle } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import SetColor from "./SetColor";
+import {
+  DropdownMenu,
+  DropdownMenuArrow,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@radix-ui/react-dropdown-menu";
+import { cn } from "@/lib/utils";
 
 interface ProductDetailProps {
   product: any;
@@ -23,6 +31,7 @@ export type ProductType = {
   selectedImage: selectedImageType;
   quantity: number;
   price: number;
+  size: string;
 };
 
 export type selectedImageType = {
@@ -31,12 +40,24 @@ export type selectedImageType = {
   colorCode: string;
 };
 
+const SORT_OPTIONS = [
+  { name: "Small", value: "small" },
+  { name: "Medium", value: "medium" },
+  { name: "Large", value: "large" },
+  { name: "XL", value: "xl" },
+  { name: "XXL", value: "xxl" },
+] as const;
+
 const HR = () => {
   return <hr className="w-[80%] my-2" />;
 };
 const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
   const { handleAddToCart, cartProducts } = useCart();
   const [alreadyInCart, setAlreadyInCart] = useState(false);
+  const [filter, setFilter] = useState({
+    sort: "small",
+  });
+
   const router = useRouter();
 
   const [cartProduct, setCartProduct] = useState<ProductType>({
@@ -47,7 +68,10 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
     selectedImage: { ...product.images[0] },
     quantity: 1,
     price: product.price,
+    size: filter.sort,
   });
+
+  console.log(filter.sort);
 
   const ratingAverage =
     product.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
@@ -70,6 +94,15 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
       });
     },
     [cartProduct.selectedImage]
+  );
+
+  const handleSize = useCallback(
+    (value: string) => {
+      setCartProduct((prev) => {
+        return { ...prev, size: value };
+      });
+    },
+    [cartProduct.size]
   );
 
   const handleImageSelector = useCallback(
@@ -150,6 +183,36 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
               handleCartIncrease={handleCartIncrease}
             />
             <HR />
+
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex">
+                Size
+                <IoIosArrowDown className="mt-1" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-white" align="start">
+                {SORT_OPTIONS.map((option) => (
+                  <button
+                    className={cn("text-left w-full px-4 py-2 text-sm", {
+                      "text-gray-900 bg-slate-300 ":
+                        option.value === filter.sort,
+                      "": option.value !== filter.sort,
+                    })}
+                    key={option.name}
+                    onClick={() => {
+                      setFilter((prev) => ({
+                        ...prev,
+                        sort: option.value,
+                      }));
+                      handleSize(option.value);
+                    }}
+                  >
+                    {option.name}
+                  </button>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <p className="text-sm">{filter.sort}</p>
+
             <div className="justify-center flex mt-6">
               <Button
                 label="Add to cart"
