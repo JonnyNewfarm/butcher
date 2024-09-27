@@ -17,7 +17,7 @@ const SetQuantity = ({
   handleCartIncrease,
 }: setQuantityProps) => {
   return (
-    <div className="flex gap-8 items-center">
+    <div className="flex gap-8 items-center pt-5">
       {cartCounter ? null : <div className="font-semibold">Quantity:</div>}
       <div className="flex gap-4 items-center text-base">
         <button className={buttonStyles} onClick={handleCartDecrease}>

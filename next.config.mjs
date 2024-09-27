@@ -8,9 +8,10 @@
 
 
 const nextConfig = {
+
    
     images: {
-        domains: ['m.media-amazon.com', 'img.freepik.com', 'lh3.googleusercontent.com']
+        domains: [ 'firebasestorage.googleapis.com','m.media-amazon.com']
     }
 };
 

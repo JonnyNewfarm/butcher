@@ -14,9 +14,6 @@ interface ProductCardProps {
 
 const productCard = ({ data }: ProductCardProps) => {
   const router = useRouter();
-  const ratingAverage =
-    data.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
-    data.reviews.length;
 
   return (
     <div
@@ -54,10 +51,8 @@ const productCard = ({ data }: ProductCardProps) => {
           />
         </div>
         <div className="mt-4">{truncateText(data.name)}</div>
-        <div>
-          <Rating className="text-black" value={ratingAverage} readOnly />
-        </div>
-        <div>{data.reviews.length} reviews</div>
+        <div></div>
+
         <div className="font-semibold">{formatPrice(data.price)}</div>
         <div></div>
       </div>

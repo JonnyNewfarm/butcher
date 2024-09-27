@@ -68,7 +68,7 @@ type CartProductType {
     product       String?
     description   String?
     category      String?
-    selectedImage image?
+    selectedImage String?
     quantity      Int?
     price         Float?
     color         String?
@@ -96,12 +96,12 @@ enum Role {
 }
 
 model Product {
-    id          String  @id @default(auto()) @map("_id") @db.ObjectId
-    name        String
-    description String
-    price       Float
+    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    name        String?
+    description String?
+    price       Float?
     brand       String?
-    category    String
-    inStock     Boolean
+    category    String?
+    inStock     Boolean?
     images      image[]
 }

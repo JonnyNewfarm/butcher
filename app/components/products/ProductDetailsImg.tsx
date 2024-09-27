@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { ProductType, selectedImageType } from "./ProductDetails";
 import Image from "next/image";

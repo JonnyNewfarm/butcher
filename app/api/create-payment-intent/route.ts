@@ -1,8 +1,6 @@
 import Stripe from 'stripe';
-import prisma from '@/libs/prismadb'
+
 import { NextRequest, NextResponse } from 'next/server';
-import { ProductType } from '@/app/components/products/ProductDetails'; 
-import { getLoggedInUser } from '@/actions/getLoggedInUser';
 
 
 
@@ -52,7 +50,10 @@ const session = await stripe.checkout.sessions.create({
         metadata: {
           productId: cartItem.id,
           color: cartItem.selectedImage.color,
-          size: cartItem.size
+          size: cartItem.size,
+          image: cartItem.selectedImage.image
+          
+          
 
         
         },
