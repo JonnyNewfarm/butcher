@@ -2,7 +2,7 @@ import { MdStorefront } from "react-icons/md";
 
 export const categories = [
     
-    {label: 'All',
+    {label: 'Home',
      icon: MdStorefront
     },
 
