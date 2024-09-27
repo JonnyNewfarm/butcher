@@ -51,7 +51,7 @@ const SORT_OPTIONS = [
 const HR = () => {
   return <hr className="w-[80%] my-2" />;
 };
-const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
+const ProductDetails = ({ product }: ProductDetailProps) => {
   const { handleAddToCart, cartProducts } = useCart();
   const [alreadyInCart, setAlreadyInCart] = useState(false);
   const [filter, setFilter] = useState({
@@ -72,10 +72,6 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
   });
 
   console.log(filter.sort);
-
-  const ratingAverage =
-    product.reviews.reduce((acc: number, item: any) => item.rating + acc, 0) /
-    product.reviews.length;
 
   useEffect(() => {
     setAlreadyInCart(false);
@@ -141,10 +137,7 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
       />
       <div>
         <h2 className="text-3xl font-medium">{product.name}</h2>
-        <div className="flex gap-2 items-center">
-          <Rating className="text-black" value={ratingAverage} readOnly />
-          <div className="text-sm">{product.reviews.lenght} reviews</div>
-        </div>
+        <div className="flex gap-2 items-center"></div>
         <HR />
         <div className="text-justify">{product.description}</div>
         <HR />
@@ -185,7 +178,7 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ product }) => {
             <HR />
 
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex">
+              <DropdownMenuTrigger className="flex font-semibold flex">
                 Size
                 <IoIosArrowDown className="mt-1" />
               </DropdownMenuTrigger>

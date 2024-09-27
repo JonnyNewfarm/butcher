@@ -52,7 +52,11 @@ country: session?.shipping_details?.address?.country,
             product: item.price.product.metadata.productId,
             quantity: item.quantity,
             color: item.price.product.metadata.color,
-            size: item.price.product.metadata.size
+            size: item.price.product.metadata.size,
+            selectedImage: item.price.product.metadata.image,
+            name: item.price.product.name,
+            
+
             
         }
     })
