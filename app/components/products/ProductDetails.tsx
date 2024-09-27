@@ -160,7 +160,11 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
               <span>Product already add to cart</span>
             </p>
             <div>
-              <Button onClick={() => router.push("/cart")} label="View cart" />
+              <Button
+                custom="bg-stone-700"
+                onClick={() => router.push("/cart")}
+                label="View cart"
+              />
             </div>
           </>
         ) : (
@@ -186,7 +190,7 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
                 {SORT_OPTIONS.map((option) => (
                   <button
                     className={cn("text-left w-full px-4 py-2 text-sm", {
-                      "text-gray-900 bg-slate-300 ":
+                      "text-stone-900 bg-stone-200 ":
                         option.value === filter.sort,
                       "": option.value !== filter.sort,
                     })}
@@ -208,6 +212,7 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
 
             <div className="justify-center flex mt-6">
               <Button
+                custom="bg-stone-700"
                 label="Add to cart"
                 onClick={() => handleAddToCart(cartProduct)}
               />

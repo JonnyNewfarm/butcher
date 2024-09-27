@@ -63,7 +63,9 @@ const ProductCartClient = ({ currentUser }: ProcuctCartProps) => {
   return (
     <div>
       <Toaster />
-      <div className="text-2xl text-center font-semibold mb-8">Your cart</div>
+      <div className="text-2xl text-center text-stone-700 font-semibold mb-8">
+        Your cart
+      </div>
       <div className="grid grid-cols-5 text-xs gap-4 pb-2 items-center">
         <div className="col-span-2 justify-self-start">Product</div>
         <div className="justify-self-center">Price</div>
@@ -98,7 +100,11 @@ const ProductCartClient = ({ currentUser }: ProcuctCartProps) => {
           <p className="text-slate-600">
             Taxes and cost of shipping calculated at checkout
           </p>
-          <Button label="Checkout" onClick={handleCheckout} />
+          <Button
+            custom="bg-stone-700"
+            label="Checkout"
+            onClick={handleCheckout}
+          />
 
           <Link href={"/"} className="flex items-center gap-1 mt-2">
             <MdArrowBack />

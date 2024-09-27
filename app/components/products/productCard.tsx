@@ -21,8 +21,8 @@ const productCard = ({ data }: ProductCardProps) => {
       className="col-span-1 
       cursor-pointer
     border-[1.2px]
-    border-slate-200
-    bg-slate-50
+    border-stone-200
+    bg-stone-50
     rounded-sm
     p-2
     transition

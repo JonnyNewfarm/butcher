@@ -12,15 +12,16 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-700 text-sm mt-16 text-slate-200">
+    <footer className="bg-stone-500 text-sm mt-16 text-slate-200">
       <Container>
         <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
           <Footerlist>
             <h3 className="font-bold">Categories</h3>
-            <Link href="#">Sausages</Link>
-            <Link href="#">Cold cuts</Link>
-            <Link href="#">Meats</Link>
-            <Link href="#">Sauces</Link>
+            <Link href="#">Men</Link>
+            <Link href="#">Women</Link>
+            <Link href="#">Sport</Link>
+            <Link href="#">Vintage</Link>
+            <Link href="#">Designer</Link>
           </Footerlist>
           <Footerlist>
             <h3 className="font-bold">Costumer service</h3>
@@ -37,12 +38,10 @@ const Footer = () => {
               laudantium incidunt earum iure, deserunt est expedita nulla harum
               vel.
             </p>
-            <p>
-              &copy; {new Date().getFullYear()} Butchers. All rights reserved
-            </p>
+            <p>&copy; {new Date().getFullYear()} Shades. All rights reserved</p>
           </div>
           <Footerlist>
-            <h3 className="font-bold">Follow Butchers at</h3>
+            <h3 className="font-bold">Follow Shades at</h3>
             <div className="flex gap-2">
               <Link href="#">
                 <MdFacebook size={24} />

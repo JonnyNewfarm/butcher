@@ -7,6 +7,7 @@ import { signOut } from "next-auth/react";
 import BackDrop from "./BackDrop";
 import { User } from "@prisma/client";
 import { safeUser } from "@/types";
+import { CiUser } from "react-icons/ci";
 
 interface NavMenuProps {
   currentUser: safeUser | null;
@@ -21,7 +22,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
     <>
       <div className="relative z-30">
         <div onClick={OpenMenu}>
-          <Avatar src={currentUser?.image} />
+          <CiUser size={28} />
 
           {isOpen && (
             <div
