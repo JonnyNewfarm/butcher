@@ -9,6 +9,7 @@ import TextArea from "@/app/components/inputs/TextArea";
 import firebaseApp from "@/libs/firebase";
 import { categories } from "@/utils/categories";
 import { colors } from "@/utils/colors";
+import { gender } from "@/utils/genders";
 
 import { useCallback, useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -56,6 +57,7 @@ const AddProductForm = () => {
       inStock: false,
       images: [],
       price: "",
+      gender: "",
     },
   });
 
@@ -83,6 +85,10 @@ const AddProductForm = () => {
     if (!data.category) {
       setIsLoading(false);
       return toast.error("Category is not selected");
+    }
+
+    if (!data.gender) {
+      return toast.error("Gender not selected");
     }
 
     if (!data.images || data.images.length == 0) {
@@ -184,6 +190,15 @@ const AddProductForm = () => {
     });
   };
 
+  const genders = watch("gender");
+  const setCustomV = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldValidate: true,
+      shouldDirty: true,
+      shouldTouch: true,
+    });
+  };
+
   const addImageToState = useCallback((value: ImageType) => {
     setIamges((prev) => {
       // If dont have previous value, just return the value
@@ -267,6 +282,28 @@ const AddProductForm = () => {
                 <CategoryInput
                   onClick={(category) => setCustomValue("category", category)}
                   selected={category == item.label}
+                  label={item.label}
+                  key={item.label}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="w-full font-medium">
+        <div className="mb-2 font-semibold ">Select a Category</div>
+        <div className="grid grid-cols-2 md:grid-cols-3 max-h-[50vh] gap-4 overflow-y-auto">
+          {gender.map((item) => {
+            if (item.label == "All") {
+              return null;
+            }
+            // show the category item
+            return (
+              <div key={item.label} className="col-span">
+                <CategoryInput
+                  onClick={(gender) => setCustomV("gender", gender)}
+                  selected={genders == item.label}
                   label={item.label}
                   key={item.label}
                 />

@@ -3,6 +3,7 @@ import prisma from '@/libs/prismadb'
 
 export interface IProductParams {
     category?: string | null;
+    gender?: string | null;
     searchTerm?: string | null;
 }
 
@@ -10,7 +11,7 @@ export interface IProductParams {
 export default async function getProducts(params:IProductParams) {
 
     try{
-        const {category, searchTerm } = params;
+        const {category, searchTerm, gender} = params;
         let searchString = searchTerm;
         
         if(!searchTerm) {
@@ -22,6 +23,10 @@ searchString = ''
         if(category){
 query.category = category
         }
+
+        if(gender){
+            query.gender = gender
+                    }
 
         const products = await prisma.product.findMany({
             where:{
