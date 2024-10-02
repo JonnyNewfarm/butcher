@@ -1,60 +1,62 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { IconType } from "react-icons";
 import queryString from "query-string";
+import { gender } from "@/utils/genders";
+import Link from "next/link";
+import DropdownMenu from "./DropdownMenu";
+import { categories } from "@/utils/categories";
+import { Container } from "postcss";
 
 interface CategoryProps {
-  label: string;
+  label?: string;
 
-  selected?: boolean;
+  href?: string;
 }
 
-const Category = ({ label, selected }: CategoryProps) => {
-  const router = useRouter();
-  const params = useSearchParams();
-  const handleClick = useCallback(() => {
-    if (label === "Home") {
-      router.push("/");
-    } else {
-      let currentQuery = {};
-
-      if (params) {
-        currentQuery = queryString.parse(params.toString());
-      }
-
-      const updatedQuery: any = {
-        ...currentQuery,
-        category: label,
-      };
-
-      const url = queryString.stringifyUrl(
-        {
-          url: "/",
-          query: updatedQuery,
-        },
-        {
-          skipNull: true,
-        }
-      );
-
-      router.push(url);
-    }
-  }, [label, params, router]);
-
+const Category = ({ label, href }: CategoryProps) => {
+  const [open, setOpen] = useState(false);
+  const showFlyOut = open && DropdownMenu;
   return (
-    <div
-      onClick={handleClick}
-      className={`flex items-center justify-center text-center gap-1 p-2 border-b-2 hover:text-stone-900 transition cursor-pointer
-    ${
-      selected
-        ? "border-b-slate-800 text-slate-800"
-        : "border-transparent text-stone-500"
-    }
+    <>
+      <div
+        className="group relative"
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+      >
+        <div className="px-10 pt-4 flex flex-row items-center justify-center mb-10 ">
+          <Link
+            href={`/products?gender=${label}`}
+            className={`relative hover:text-stone-900 cursor-pointer
+   
     `}
-    >
-      <div className="font-medium text-sm">{label}</div>
-    </div>
+          >
+            {label}
+            <span
+              style={{ transform: showFlyOut ? "scaleX(1)" : "scaleX(0)" }}
+              className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-full bg-stone-500 transition-transform duration-300 ease-out"
+            />
+          </Link>
+        </div>
+
+        {showFlyOut && (
+          <div className="absoulte left-3  -translate-x-1/2">
+            <div className="absolute -top-6  right-0 h-6 bg-transparent ">
+              {categories.map((item) => (
+                <div className=" rounded-sm px-5 py-1 bg-white">
+                  <DropdownMenu
+                    key={item.label}
+                    gender={label}
+                    category={item.label}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

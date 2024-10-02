@@ -33,7 +33,7 @@ const ManageProductClient = ({ products }: ManageProductClientProps) => {
       return {
         id: product.id,
         name: product.name,
-        price: formatPrice(product.price),
+        price: formatPrice(product.price!),
         category: product.category,
         brand: product.brand,
         inStock: product.inStock,

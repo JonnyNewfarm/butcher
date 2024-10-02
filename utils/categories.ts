@@ -2,9 +2,7 @@ import { MdStorefront } from "react-icons/md";
 
 export const categories = [
     
-    {label: 'Home',
-     icon: MdStorefront
-    },
+  
 
     {label: 'Vintage',
         icon: MdStorefront
@@ -20,13 +18,7 @@ export const categories = [
 
 
 
-       {label: 'men',
-        icon: MdStorefront
-       },
-
-       {label: 'women',
-        icon: MdStorefront
-       },
+   
        
 
 ]

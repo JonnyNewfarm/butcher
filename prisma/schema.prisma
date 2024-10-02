@@ -102,6 +102,7 @@ model Product {
     price       Float?
     brand       String?
     category    String?
+    gender      String?
     inStock     Boolean?
     images      image[]
 }
