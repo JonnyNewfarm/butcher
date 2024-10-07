@@ -2,11 +2,9 @@
 
 import { formatPrice } from "@/utils/foramtPrice";
 import { truncateText } from "@/utils/truncateText";
-import { Rating } from "@mui/material";
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useCallback } from "react";
-import { selectedImageType } from "./ProductDetails";
 
 interface ProductCardProps {
   data: any;
@@ -20,9 +18,10 @@ const productCard = ({ data }: ProductCardProps) => {
       onClick={() => router.push(`/product/${data.id}`)}
       className="col-span-1 
       cursor-pointer
-    border-[1.2px]
-    border-stone-200
-    bg-stone-50
+    
+  
+    border-stone-300
+  
     rounded-sm
     p-2
     transition
@@ -51,10 +50,12 @@ const productCard = ({ data }: ProductCardProps) => {
           />
         </div>
         <div className="mt-4">{truncateText(data.name)}</div>
-        <div></div>
 
         <div className="font-semibold">{formatPrice(data.price)}</div>
-        <div></div>
+
+        <div className="border-[2px] border-stone-400 py-2 px-5 rounded-[3px]">
+          View more
+        </div>
       </div>
     </div>
   );

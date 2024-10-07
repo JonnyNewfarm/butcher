@@ -20,7 +20,7 @@ const Categories = ({ selected }: CategoryProps) => {
   return (
     <div className="bg-white">
       <Container>
-        <div className="pt-4  flex flex-row items-center justify-center">
+        <div className="flex flex-row items-center justify-center">
           {gender.map((item) => (
             <Category key={item.label} href={item.label} label={item.label} />
           ))}

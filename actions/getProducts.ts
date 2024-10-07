@@ -1,4 +1,5 @@
 import prisma from '@/libs/prismadb'
+import { revalidateTag } from 'next/cache';
 
 
 export interface IProductParams {
@@ -29,18 +30,25 @@ query.category = category
                     }
 
         const products = await prisma.product.findMany({
+         
             where:{
                 ...query,
                 OR: [
                     {
-                        name: {contains: searchString, mode: 'insensitive'},
-                        description: {contains: searchString, mode: 'insensitive'}
+                        name: {contains: searchString, mode: 'insensitive', },
+                        
 
                     }
                 ]
             },
+
+           
+
+          
+            
             
         })
+        
 return products
     } catch(error: any) {
         throw new Error(error)
