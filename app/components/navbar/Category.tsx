@@ -25,10 +25,10 @@ const Category = ({ label, href }: CategoryProps) => {
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
       >
-        <div className="px-10 pt-4 flex flex-row items-center justify-center pb-4 ">
+        <div className="px-10 pt-4 mb-8 flex flex-row items-center justify-center pb-4 ">
           <Link
             href={`/products?gender=${label}`}
-            className={`relative hover:text-stone-900 cursor-pointer
+            className={`relative hover:text-stone-900  cursor-pointer
    
     `}
           >

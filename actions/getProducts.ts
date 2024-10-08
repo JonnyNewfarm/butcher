@@ -38,8 +38,10 @@ query.category = category
                         name: {contains: searchString, mode: 'insensitive', },
                         
 
-                    }
-                ]
+                    },
+                    {description: {contains: searchString, mode: 'insensitive', },}
+                ],
+                
             },
 
            
