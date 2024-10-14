@@ -1,6 +1,6 @@
 import { MdStorefront } from "react-icons/md";
 
-export const gender = [
+export const navMenuItems = [
     
     {label: 'Men',
      icon: MdStorefront
@@ -10,7 +10,9 @@ export const gender = [
         icon: MdStorefront
        },
 
-     
+       {label: 'Brands',
+        icon: MdStorefront
+       },
      
 
         

@@ -6,13 +6,14 @@ import NavMenu from "./NavMenu";
 import { getLoggedInUser } from "@/actions/getLoggedInUser";
 import Categories from "./Categories";
 import SearchBar from "./SearchBar";
+import { CiHome } from "react-icons/ci";
 
 const NavBar = async () => {
   const currentUser = await getLoggedInUser();
 
   return (
-    <div className="sticky top-0 w-full bg-custom-color z-30  text-black">
-      <div className="py-3 border-b-[1px]">
+    <div className="sticky top-0 w-full  bg-custom-color  z-30  text-black">
+      <div className="py-3 border-b-[1p] h-14 align-middle">
         <Container>
           <div className="flex items-center justify-between gap text-black-3 md:gap-0">
             <Link href="/" className="font-bold text-xl text-stone-800">
@@ -21,6 +22,9 @@ const NavBar = async () => {
 
             <div className="flex items-center gap-8 md:gap-10">
               <SearchBar />
+              <Link href={"/"}>
+                <CiHome strokeWidth={0.5} size={32} />
+              </Link>
               <CartCounter />
               <NavMenu currentUser={currentUser} />
             </div>
