@@ -53,7 +53,9 @@ const ProductCartClient = ({ currentUser }: ProcuctCartProps) => {
         <h1>There are no products in your cart</h1>
         <div>
           <Link href={"/"} className="flex items-center gap-1 mt-2">
-            <span className="font-semibold">Browse through products </span>
+            <span className="font-semibold underline">
+              Browse through products{" "}
+            </span>
           </Link>
         </div>
       </div>

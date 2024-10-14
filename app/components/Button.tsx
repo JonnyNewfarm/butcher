@@ -31,13 +31,13 @@ const Button = ({
         hover:opacity-80
         transition
         w-[100%]
-        border-slate-700
+        border-stone-700
         items-center
         justify-center
         gap-2
         flex
         ${outline ? "bg-white " : "bg-slate-700"}
-        ${outline ? "text-slate-700" : "text-white"}
+        ${outline ? "text-stone-700" : "text-white"}
         ${small ? "text-sm font-light" : "text-md font-semibold"}
         ${small ? "py-1 px-2 border-[1px]" : "px-4 py-3 border-2"}
         ${custom ? custom : ""}

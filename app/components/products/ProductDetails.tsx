@@ -32,6 +32,7 @@ export type ProductType = {
   quantity: number;
   price: number;
   size: string;
+  brand: string;
 };
 
 export type selectedImageType = {
@@ -69,6 +70,7 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
     quantity: 1,
     price: product.price,
     size: filter.sort,
+    brand: product.brand,
   });
 
   console.log(filter.sort);
@@ -141,9 +143,13 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
         <HR />
         <div className="text-justify">{product.description}</div>
         <HR />
-        <div>
+        <div className="flex gap-1">
           <span className="font-semibold">Category:</span>
-          {product.category}
+          <p>{product.category}</p>
+        </div>
+        <div className="flex gap-1">
+          <span className="font-semibold">Brand:</span>
+          <p>{product.brand}</p>
         </div>
         <div className="flex gap-1">
           <p className="font-semibold">Inventory:</p>

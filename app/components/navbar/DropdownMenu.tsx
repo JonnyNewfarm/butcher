@@ -4,15 +4,14 @@ import React from "react";
 interface DropdownMenuProps {
   gender: string | undefined;
   category: string | undefined;
+  brand: () => void;
 }
 
 const DropdownMenu = ({ category, gender }: DropdownMenuProps) => {
   return (
-    <div className="py-2">
-      <Link href={`/products?gender=${gender}&category=${category}`}>
-        {category}
-      </Link>
-    </div>
+    <Link href={`/products?gender=${gender}&category=${category}`}>
+      {category}
+    </Link>
   );
 };
 
