@@ -41,10 +41,10 @@ const productCard = ({ data }: ProductCardProps) => {
       
       "
       >
-        <div className="aspect-square overflow-hidden relative w-full">
+        <div className="aspect-square overflow-hidden h-40 relative w-full">
           <Image
             fill
-            className="w-full h-full object-contain"
+            className="w-full object-contain"
             src={data.images[0].image}
             alt={data.name}
           />
