@@ -2,27 +2,27 @@ import { MdStorefront } from "react-icons/md";
 
 export const brands = [
     
-    {label: 'Men',
-     icon: MdStorefront
+    {label: 'Domani',
+     
     },
 
-    {label: 'Women',
+    {label: 'Dormo',
         icon: MdStorefront
        },
 
-       {label: 'lunettes',
+       {label: 'Lunettes',
         icon: MdStorefront
        },
 
-       {label: 'Men',
+       {label: 'Pomeriggio',
         icon: MdStorefront
        },
    
-       {label: 'Women',
+       {label: 'Lontano',
            icon: MdStorefront
           },
    
-          {label: 'lunettes',
+          {label: 'Qualcuno',
            icon: MdStorefront
           },
 

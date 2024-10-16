@@ -44,7 +44,11 @@ query.category = category
                         
 
                     },
-                    {description: {contains: searchString, mode: 'insensitive', },}
+                    {
+                        description: {contains: searchString, mode: 'insensitive', },
+                    },
+
+                    {brand: {contains: searchString, mode: 'insensitive', },}
                 ],
                 
             },
