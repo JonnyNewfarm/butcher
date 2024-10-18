@@ -49,7 +49,7 @@ const productCard = ({ data }: ProductCardProps) => {
             alt={data.name}
           />
         </div>
-        <div className="mt-4">{truncateText(data.name)}</div>
+        <div className="mt-[-10px]">{truncateText(data.name)}</div>
 
         <div className="font-semibold">{formatPrice(data.price)}</div>
 

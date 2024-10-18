@@ -12,7 +12,7 @@ const NavBar = async () => {
   const currentUser = await getLoggedInUser();
 
   return (
-    <div className="sticky top-0 w-full  bg-custom-color-light  z-30  text-black">
+    <div className="sticky top-0 w-full border-b-stone-700  bg-custom-color-light z-30  text-black">
       <div className="py-3 border-b-[1p] h-14 align-middle">
         <Container>
           <div className="flex items-center justify-between gap text-black-3 md:gap-0">
@@ -23,7 +23,7 @@ const NavBar = async () => {
             <div className="flex items-center gap-8 md:gap-10">
               <SearchBar />
               <Link href={"/"}>
-                <CiHome strokeWidth={0.5} size={32} />
+                <CiHome strokeWidth={0.5} size={26} />
               </Link>
               <CartCounter />
               <NavMenu currentUser={currentUser} />

@@ -21,7 +21,7 @@ const CartCounter = () => {
       onClick={() => router.push("/cart")}
     >
       <div className="text-3xl">
-        <BsHandbag size={30} strokeWidth="0.1px" style={{ fontWeight: "b" }} />
+        <BsHandbag size={24} strokeWidth="0.1px" style={{ fontWeight: "b" }} />
         <span
           className="absoulte
           mt-[-22px] 

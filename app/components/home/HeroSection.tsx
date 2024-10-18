@@ -8,8 +8,8 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col-reverse xl:flex-row lg:flex-row md:flex-col-reverse sm:flex-col-reverse justify-center relative z-10 mt-5 mb-10 w-[80%] xl:border-b-2 xl:shadow-sm bg-white">
-      <div className="flex flex-col align-middle lg:w-full pt-20 pl-4 gap-5">
+    <div className="flex flex-col-reverse xl:flex-row rounded-md lg:flex-row md:flex-col-reverse sm:flex-col-reverse justify-center relative z-10 mt-5 mb-10 w-[80%] xl:border-b-2 xl:shadow-sm bg-white">
+      <div className="flex flex-col align-middle lg:w-full  pt-20 pl-8 gap-5">
         <div>
           <h1 className="font-bold text-lg  xl:text-2xl md:text-lg">
             Lorem ipsum dolor

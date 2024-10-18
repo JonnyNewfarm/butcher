@@ -1,9 +1,9 @@
+"use client";
+
 interface HeadingProps {
   title: string;
   center?: boolean;
 }
-
-import React from "react";
 
 const Heading = ({ title, center }: HeadingProps) => {
   return (

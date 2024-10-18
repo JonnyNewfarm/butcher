@@ -21,7 +21,7 @@ export const colors = [
     },
     {
       color: 'Red',
-      colorCode: '#FF0000',
+      colorCode: '#a3140a',
       image: null,
     },
     {

@@ -8,7 +8,7 @@ import { navMenuItems } from "@/utils/NavMenuItems";
 
 const Categories = () => {
   return (
-    <div className="bg-white h-12">
+    <div className="bg-white h-12 shadow-sm">
       <Container>
         <div className="flex flex-row  items-center justify-center">
           {navMenuItems.map((item) => (

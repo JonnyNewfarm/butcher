@@ -8,7 +8,7 @@ const Brands = () => {
     <div className="flex justify-center">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4  gap-x-10  ">
         {brands.map((item) => (
-          <BrandLink label={item.label} />
+          <BrandLink key={item.label} label={item.label} />
         ))}
       </div>
     </div>
