@@ -22,7 +22,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
     <>
       <div className="relative z-30">
         <div onClick={OpenMenu}>
-          <CiUser cursor={"pointer"} strokeWidth={"0.5px"} size={31} />
+          <CiUser cursor={"pointer"} strokeWidth={"0.5px"} size={25} />
 
           {isOpen && (
             <div

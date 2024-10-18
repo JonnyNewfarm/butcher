@@ -7,6 +7,8 @@ export interface IProductParams {
     gender?: string | null;
     searchTerm?: string | null;
     brand?: string | null;
+    price?: string | null;
+    
 }
 
 
