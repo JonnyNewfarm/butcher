@@ -23,8 +23,12 @@ const CartCounter = () => {
       <div className="text-3xl">
         <BsHandbag size={24} strokeWidth="0.1px" style={{ fontWeight: "b" }} />
         <span
-          className="absoulte
-          mt-[-22px] 
+          className="
+          mt-[-36px] 
+          absolute 
+          left-5
+          underline
+          text-[13px]
           
          h-6
          
@@ -32,7 +36,7 @@ const CartCounter = () => {
          flex
          items-center
          justify-center
-         text-sm
+         
          
          "
         >

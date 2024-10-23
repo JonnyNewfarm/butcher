@@ -45,7 +45,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="absolute mt-[-170px] md:mt-[150px] lg:mt-[200px]  mb-14   flex flex-col text-white text-center hover:scale-105 transition justify-center cursor-pointer pt-3 pb-3  z-20 bg-stone-700 h-[100px] w-[250px] bg-opacity-90 hover:bg-opacity-85 rounded">
+      <div className="absolute mt-[-170px] md:mt-[150px] lg:mt-[200px]  mb-14   flex flex-col text-white text-center hover:scale-105 transition justify-center cursor-pointer pt-3 pb-3  z-20 bg-[#867070] h-[100px] w-[250px] bg-opacity-90 hover:bg-opacity-85 rounded">
         <h1 className="font-light">Check out</h1>
         <h1 className="font-light">new arrivals</h1>
 

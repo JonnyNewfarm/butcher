@@ -16,9 +16,17 @@ const FilterProductsMenu = () => {
   const brandParams = searchParams?.get("brand");
   if (brandParams) {
     return (
-      <div className="mr-4">
-        <FilterPriceBrand brandParam={brandParams} />
-        <FilterProductsBrand brandParam={brandParams} />
+      <div className="mr-4 mt-8">
+        <FilterPriceBrand
+          genderParam={genderParams!}
+          categoryParam={categoryParams!}
+          brandParam={brandParams}
+        />
+        <FilterProductsBrand
+          genderParam={genderParams!}
+          priceParam={priceParams!}
+          brandParam={brandParams}
+        />
         <FilterGender
           genderParam={genderParams!}
           priceParam={priceParams!}
@@ -29,7 +37,7 @@ const FilterProductsMenu = () => {
     );
   } else {
     return (
-      <div className="mr-4">
+      <div className="mr-4 mt-8">
         <FilterPrice
           genderParam={genderParams!}
           categoryParam={categoryParams!}

@@ -60,14 +60,15 @@ const FilterGender = ({
            : `grid-rows-[0fr] opacity-0`
        }`}
       >
-        <div className="overflow-hidden grid">
+        <div className="overflow-hidden grid py-[5px] border-b-[1px]  border-stone-600">
           {gender.map((item) => (
             <Link
-              className="text-nowrap"
+              className="text-nowrap hover:underline"
               key={item.label}
               href={handleGender(item.label)}
             >
               {item.label}
+              <hr className="w-[20%]" />
             </Link>
           ))}
         </div>

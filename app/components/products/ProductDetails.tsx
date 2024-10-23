@@ -11,13 +11,14 @@ import { useCart } from "@/hooks/useProductCart";
 import { MdCheckCircle } from "react-icons/md";
 import { useRouter } from "next/navigation";
 import SetColor from "./SetColor";
+import { cn } from "@/lib/utils";
+
 import {
   DropdownMenu,
   DropdownMenuArrow,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
-import { cn } from "@/lib/utils";
 
 interface ProductDetailProps {
   product: any;

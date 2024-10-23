@@ -6,6 +6,8 @@ interface DropdownMenuProps {
   gender: string | undefined;
   category: string | undefined;
   brand: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const DropdownMenu = ({ category, gender }: DropdownMenuProps) => {

@@ -49,7 +49,7 @@ const ProductCartClient = ({ currentUser }: ProcuctCartProps) => {
 
   if (!cartProducts || cartProducts.length === 0) {
     return (
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center mt-10">
         <h1>There are no products in your cart</h1>
         <div>
           <Link href={"/"} className="flex items-center gap-1 mt-2">
@@ -63,10 +63,10 @@ const ProductCartClient = ({ currentUser }: ProcuctCartProps) => {
   }
 
   return (
-    <div>
+    <div className="mt-10">
       <Toaster />
-      <div className="text-2xl text-center text-stone-700 font-semibold mb-8">
-        Your cart
+      <div className="text-2xl  flex justify-center text-stone-700 font-semibold mb-8">
+        <h1 className="text-nowrap">Your cart</h1>
       </div>
       <div className="grid grid-cols-5 text-xs gap-4 pb-2 items-center">
         <div className="col-span-2 justify-self-start">Product</div>

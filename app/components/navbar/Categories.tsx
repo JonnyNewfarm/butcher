@@ -12,7 +12,12 @@ const Categories = () => {
       <Container>
         <div className="flex flex-row  items-center justify-center">
           {navMenuItems.map((item) => (
-            <Category key={item.label} href={item.label} label={item.label} />
+            <Category
+              key={item.label}
+              href={item.label}
+              label={item.label}
+              gender={item.label}
+            />
           ))}
         </div>
         <div className="flex justify-center">

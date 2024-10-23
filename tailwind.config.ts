@@ -22,7 +22,7 @@ const config: Config = {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			'custom-color': '#fbfbfb',
-			'custom-color-light': '#faf6f0',
+			'custom-color-light': '#E4D0D0',
 			   
   			card: {
   				DEFAULT: 'hsl(var(--card))',
