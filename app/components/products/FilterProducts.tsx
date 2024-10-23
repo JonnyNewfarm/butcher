@@ -34,13 +34,15 @@ const FilterProducts = ({ genderParam }: FilterProductsProps) => {
            : `grid-rows-[0fr] opacity-0`
        }`}
       >
-        <div className="overflow-hidden grid">
+        <div className="overflow-hidden grid py-[5px] border-b-[1px]  border-stone-600 ">
           {categories.map((item) => (
             <Link
+              className="hover:underline"
               key={item.label}
               href={`/products?gender=${genderParam}&category=${item.label}`}
             >
               {item.label}
+              <hr className="w-[20%]" />
             </Link>
           ))}
         </div>

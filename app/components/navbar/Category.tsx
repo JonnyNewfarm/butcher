@@ -1,32 +1,45 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useCallback, useState } from "react";
-import { IconType } from "react-icons";
-import queryString from "query-string";
-import { gender } from "@/utils/genders";
+
 import Link from "next/link";
 import DropdownMenu from "./DropdownMenu";
 import { categories } from "@/utils/categories";
-import { Container } from "postcss";
-import { dividerClasses } from "@mui/material";
+
 import { brands } from "@/utils/brands";
 import DropdownBrand from "./DropDownBrand";
+import Image from "next/image";
+import navImageMen from "@/public/navImageMen.jpeg";
+import navImageWomen from "@/public/navImageWomen.jpeg";
 
 interface CategoryProps {
   label?: string;
+  gender?: string;
 
   href?: string;
 }
 
-const Category = ({ label, href }: CategoryProps) => {
+const Category = ({ label, href, gender }: CategoryProps) => {
   const [open, setOpen] = useState(false);
   const showFlyOut = open && DropdownMenu;
   const [brand, setBrand] = useState("");
+  const [category, setCategory] = useState("");
+
   function handleFlyoutEnter() {
     setOpen(true);
     setBrand(`${label}`);
+    setCategory(`${gender}`);
   }
-  console.log(brand);
+  function handleFlyoutImage() {
+    if (gender === "Women") {
+      return navImageWomen;
+    }
+
+    if (gender === "Men") {
+      return navImageMen;
+    }
+  }
+
   if (brand != "Brands") {
     return (
       <>
@@ -51,16 +64,33 @@ const Category = ({ label, href }: CategoryProps) => {
           </div>
 
           {showFlyOut && (
-            <div className="absoulte -translate-x-1/2">
-              <div className="absolute -top-6 min-w-[250px]  gap-x-24  bg-stone-50 rounded-l p-4 gap-y-6 grid grid-cols-1 ">
-                {categories.map((item) => (
-                  <DropdownMenu
-                    key={item.label}
-                    gender={label}
-                    category={item.label}
-                    brand={() => setBrand(item.label)}
-                  />
-                ))}
+            <div className="absoulte -translate-x-1/2 flex flex-row">
+              <div className="absolute -top-6 bg-[#F5EBEB] min-w-[500px] rounded-l p-4 gap-y-6 grid grid-cols-2 ">
+                <div className="grid grid-cols-1">
+                  {categories.map((item) => (
+                    <DropdownMenu
+                      key={item.label}
+                      gender={label}
+                      category={item.label}
+                      brand={() => setBrand(item.label)}
+                    />
+                  ))}
+                </div>
+
+                <div className="relative">
+                  <Link
+                    href={`http://localhost:3000/products?brand=Dormo&gender=${gender}`}
+                  >
+                    <Image
+                      src={handleFlyoutImage()!}
+                      alt="sunglasses man"
+                      className="object-contain"
+                    />
+                    <h1 className="text-stone-100 right-2 text-lg top-[50px] font-semibold absolute">
+                      By Dormo
+                    </h1>
+                  </Link>
+                </div>
               </div>
             </div>
           )}
@@ -92,7 +122,7 @@ const Category = ({ label, href }: CategoryProps) => {
 
           {showFlyOut && (
             <div className="absoulte   -translate-x-1/2">
-              <div className="absolute -top-6 min-w-[280px]  gap-x-24 bg-stone-50 rounded-l p-4 gap-y-6 grid grid-cols-2 ">
+              <div className="absolute -top-6 min-w-[280px]  gap-x-24 bg-[#EEE2DC] rounded-l p-4 gap-y-6 grid grid-cols-2 ">
                 {brands.map((item) => (
                   <DropdownBrand
                     brands={item.label}

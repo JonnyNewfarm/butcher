@@ -1,5 +1,6 @@
 "use client";
 import { categories } from "@/utils/categories";
+import { gender } from "@/utils/genders";
 import { priceOptions } from "@/utils/priceOptions";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -8,9 +9,16 @@ import React, { useState } from "react";
 interface FilterProductsProps {
   genderParam?: string;
   categoryParam?: string;
+  priceParam?: string;
+  brandParam?: string;
 }
 
-const FilterPrice = ({ genderParam, categoryParam }: FilterProductsProps) => {
+const FilterPrice = ({
+  genderParam,
+  categoryParam,
+  priceParam,
+  brandParam,
+}: FilterProductsProps) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
   const handleAccordion = () => {
     if (accordionOpen === true) {
@@ -38,14 +46,15 @@ const FilterPrice = ({ genderParam, categoryParam }: FilterProductsProps) => {
            : `grid-rows-[0fr] opacity-0`
        }`}
       >
-        <div className="overflow-hidden grid">
+        <div className="overflow-hidden grid py-[5px] border-b-[1px]  border-stone-600 ">
           {priceOptions.map((item) => (
             <Link
-              className="text-nowrap"
+              className="text-nowrap hover:underline"
               key={item.label}
               href={`/products?gender=${genderParam}&category=${categoryParam}&price=${item.value}`}
             >
               {item.label}
+              <hr className="w-[20%]" />
             </Link>
           ))}
         </div>

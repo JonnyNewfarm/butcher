@@ -53,7 +53,7 @@ const productCard = ({ data }: ProductCardProps) => {
 
         <div className="font-semibold">{formatPrice(data.price)}</div>
 
-        <div className="border-[2px] border-stone-400 py-2 px-5 rounded-[3px]">
+        <div className="border-[2px] border-[#867070] py-2 px-5 rounded-[3px]">
           View more
         </div>
       </div>

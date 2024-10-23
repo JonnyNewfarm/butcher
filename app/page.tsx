@@ -11,9 +11,9 @@ export default async function Home() {
       <div className="justify-center flex mt-9">
         <HeroSection />
       </div>
-
-      <div className="mt-9">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8 mt-8">
+      <h1 className="mb-[-20px] mt-20 font-semibold">Dormo</h1>
+      <div className="mt-10 border-t-[1px] border-stone-400">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-8 mt-3">
           {products.map((product: any) => {
             return <ProductCard key={product.id} data={product} />;
           })}

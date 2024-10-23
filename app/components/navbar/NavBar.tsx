@@ -12,8 +12,8 @@ const NavBar = async () => {
   const currentUser = await getLoggedInUser();
 
   return (
-    <div className="sticky top-0 w-full border-b-stone-700  bg-custom-color-light z-30  text-black">
-      <div className="py-3 border-b-[1p] h-14 align-middle">
+    <div className="sticky top-0 w-full shadow-sm  bg-custom-color-light z-30  text-black">
+      <div className="py-3 border-b-[1p] h-14 align-middle  bg-custom-color-light">
         <Container>
           <div className="flex items-center justify-between gap text-black-3 md:gap-0">
             <Link href="/" className="font-bold text-xl text-stone-800">
