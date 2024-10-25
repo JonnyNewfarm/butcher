@@ -65,7 +65,7 @@ const Category = ({ label, href, gender }: CategoryProps) => {
 
           {showFlyOut && (
             <div className="absoulte -translate-x-1/2 flex flex-row">
-              <div className="absolute -top-6 bg-[#F5EBEB] min-w-[500px] rounded-l p-4 gap-y-6 grid grid-cols-2 ">
+              <div className="absolute -top-6 bg-custom-color border-stone-800 border-b-[1px] min-w-[500px] rounded-l p-4 gap-y-6 grid grid-cols-2 ">
                 <div className="grid grid-cols-1">
                   {categories.map((item) => (
                     <DropdownMenu
@@ -122,7 +122,7 @@ const Category = ({ label, href, gender }: CategoryProps) => {
 
           {showFlyOut && (
             <div className="absoulte   -translate-x-1/2">
-              <div className="absolute -top-6 min-w-[280px]  gap-x-24 bg-[#EEE2DC] rounded-l p-4 gap-y-6 grid grid-cols-2 ">
+              <div className="absolute -top-6 min-w-[280px]  gap-x-24 bg-custom-color rounded-l p-4 gap-y-6 grid grid-cols-2 ">
                 {brands.map((item) => (
                   <DropdownBrand
                     brands={item.label}

@@ -21,7 +21,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className=" bg-custom-color">
+    <html
+      style={{ scrollbarWidth: "thin" }}
+      lang="en"
+      className=" bg-custom-color overflow-x-hidden"
+    >
       <body className={poppins.className}>
         <Toaster
           toastOptions={{
@@ -34,6 +38,7 @@ export default async function RootLayout({
         <ProductCartProvider>
           <div className="flex flex-col min-h-screen">
             <NavBar />
+
             <main className="flex-grow">{children}</main>
           </div>
           <Footer />

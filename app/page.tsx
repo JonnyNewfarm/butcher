@@ -7,20 +7,21 @@ import ProductCard from "@/app/components/products/productCard";
 export default async function Home() {
   const products = await getProductByBrand();
   return (
-    <Container>
-      <div className="justify-center flex mt-9">
+    <>
+      <div className="justify-center flex bg-custom-color-light w-full">
         <HeroSection />
       </div>
-      <h1 className="mb-[-20px] mt-20 font-semibold">Dormo</h1>
-      <div className="mt-10 border-t-[1px] border-stone-400">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-8 mt-3">
-          {products.map((product: any) => {
-            return <ProductCard key={product.id} data={product} />;
-          })}
-        </div>
-      </div>
 
-      <div className="mt-20"></div>
-    </Container>
+      <Container>
+        <div className="mt-24 border-t-[1px] bg-custom-color w-full rounded-xl">
+          <h1 className="font-semibold">Dormo</h1>
+          <div className="grid grid-cols-2 sm:grid-cols-3 p-6 rounded-xl lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-8 mt-3 w-full">
+            {products.map((product: any) => {
+              return <ProductCard key={product.id} data={product} />;
+            })}
+          </div>
+        </div>
+      </Container>
+    </>
   );
 }

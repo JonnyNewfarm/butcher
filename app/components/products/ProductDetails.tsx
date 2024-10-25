@@ -1,6 +1,5 @@
 "use client";
 
-import { Rating } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -15,7 +14,6 @@ import { cn } from "@/lib/utils";
 
 import {
   DropdownMenu,
-  DropdownMenuArrow,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
@@ -167,11 +165,12 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
               <span>Product already add to cart</span>
             </p>
             <div>
-              <Button
-                custom="bg-stone-700"
+              <button
+                className="bg-custom-color-secondary text-white text-nowrap text- w-full pt-3 pb-3 hover:opacity-80"
                 onClick={() => router.push("/cart")}
-                label="View cart"
-              />
+              >
+                View cart
+              </button>
             </div>
           </>
         ) : (
@@ -189,7 +188,7 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
             <HR />
 
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex font-semibold flex">
+              <DropdownMenuTrigger className="flex font-semibold">
                 Size
                 <IoIosArrowDown className="mt-1" />
               </DropdownMenuTrigger>
@@ -218,11 +217,12 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
             <p className="text-sm">{filter.sort}</p>
 
             <div className="justify-center flex mt-6">
-              <Button
-                custom="bg-stone-700"
-                label="Add to cart"
+              <button
+                className="bg-custom-color-secondary text-white text-nowrap text- w-full pt-3 pb-3"
                 onClick={() => handleAddToCart(cartProduct)}
-              />
+              >
+                Add to cart
+              </button>
             </div>
           </>
         )}

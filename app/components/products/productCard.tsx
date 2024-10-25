@@ -15,7 +15,7 @@ const productCard = ({ data }: ProductCardProps) => {
 
   return (
     <div
-      onClick={() => router.push(`/product/${data.id}`)}
+      onClick={() => router.push(`/products/${data.id}`)}
       className="col-span-1 
       cursor-pointer
     
@@ -25,7 +25,7 @@ const productCard = ({ data }: ProductCardProps) => {
     rounded-sm
     p-2
     transition
-    hover:scale-105
+    hover:scale-[102%]
     text-center
     text-sm
 
@@ -37,7 +37,7 @@ const productCard = ({ data }: ProductCardProps) => {
       flex-col
       items-center
       w-full
-      gap-4
+      gap-2
       
       "
       >
@@ -53,7 +53,7 @@ const productCard = ({ data }: ProductCardProps) => {
 
         <div className="font-semibold">{formatPrice(data.price)}</div>
 
-        <div className="border-[2px] border-[#867070] py-2 px-5 rounded-[3px]">
+        <div className="border-[2px] border-custom-color-secondary py-2 px-5 rounded-xl">
           View more
         </div>
       </div>

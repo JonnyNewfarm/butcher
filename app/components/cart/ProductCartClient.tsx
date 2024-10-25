@@ -102,11 +102,12 @@ const ProductCartClient = ({ currentUser }: ProcuctCartProps) => {
           <p className="text-slate-600">
             Taxes and cost of shipping calculated at checkout
           </p>
-          <Button
-            custom="bg-stone-700"
-            label="Checkout"
+          <button
+            className="bg-custom-color-secondary text-custom-color text-nowrap text- w-full pt-3 pb-3"
             onClick={handleCheckout}
-          />
+          >
+            Checkout
+          </button>
 
           <Link href={"/"} className="flex items-center gap-1 mt-2">
             <MdArrowBack />

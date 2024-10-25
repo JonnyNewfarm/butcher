@@ -34,6 +34,7 @@ const Button = ({
         border-stone-700
         items-center
         justify-center
+        
         gap-2
         flex
         ${outline ? "bg-white " : "bg-slate-700"}

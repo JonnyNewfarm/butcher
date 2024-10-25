@@ -2,21 +2,21 @@
 import React from "react";
 import Heading from "../Heading";
 import Image from "next/image";
-import openart from "@/public/openart.jpg";
+import heroSection from "@/public/heroSection.jpeg";
 import { FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
+import Container from "../Container";
+import { BsBorderWidth } from "react-icons/bs";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col-reverse xl:flex-row rounded-md lg:flex-row md:flex-col-reverse sm:flex-col-reverse justify-center relative z-10 mt-5 mb-10 w-[80%] xl:border-b-2 xl:shadow-sm bg-white">
-      <div className="flex flex-col align-middle lg:w-full  pt-20 pl-8 gap-5">
-        <div>
-          <h1 className="font-bold text-lg  xl:text-2xl md:text-lg">
-            Lorem ipsum dolor
-          </h1>
-          <p className="font-semibold pt-3">
-            Fusce ut efficitur miviverra urna ut in eros. 
-          </p>
+    <div className=" flex flex-col-reverse xl:flex-row rounded-xl lg:flex-row  md:flex-col-reverse sm:flex-col-reverse justify-center relative z-10 mt-5 mb-10 w-[80%]  bg-custom-color-light md:px-20 md:pt-10">
+      <div className="flex flex-col align-middle lg:w-full  pt-20 pl-8 gap-2">
+        <div className="gap-y-0">
+          <h1 className="font-extrabold text-[50px]">Lorem ipsum</h1>
+          <h1 className="font-bold text-[50px]"> dolor libero vitae</h1>
+          <h1 className="font-bold text-[50px]"> neque</h1>
+
           <p className="pt-1 ">
             Nam fermentum et libero vitae gravida. Phasellus{" "}
           </p>
@@ -24,38 +24,26 @@ const HeroSection = () => {
           <hr className="w-[20%]" />
         </div>
 
-        <div>
-          <p className="font-semibold pt-3">Fusce ut efficitur miviver </p>
-          <p className="pt-1">Nam fermentum et libero vitae gravida</p>
-          <hr className="w-[20%]" />
-        </div>
-
-        <div className="">
-          <p className="font-semibold pt-3">
-            Fusce ut efficitur miviverra urna 
-          </p>
-          <p className="pt-1">Nam fermentum et libero vitae gravida</p>
-          <p>consequat lorem integer neque.</p>
-          <hr className="w-[20%]" />
-          <p className="mt-5">
-            <Link className="underline font-semibold" href={"/"}>
-              View more
-            </Link>
-          </p>
+        <div className="mt-5">
+          <Link
+            className="bg-stone-800 rounded-xl py-3 px-8 text-custom-color text-center"
+            href={``}
+          >
+            Shop now
+          </Link>
         </div>
       </div>
 
-      <div className="absolute mt-[-170px] md:mt-[150px] lg:mt-[200px]  mb-14   flex flex-col text-white text-center hover:scale-105 transition justify-center cursor-pointer pt-3 pb-3  z-20 bg-[#867070] h-[100px] w-[250px] bg-opacity-90 hover:bg-opacity-85 rounded">
-        <h1 className="font-light">Check out</h1>
-        <h1 className="font-light">new arrivals</h1>
+      <div className="w-full relative">
+        <div className="absolute mt-[15%] ml-[20%] flex flex-col text-custom-color text-sm hover:scale-105 transition justify-center  cursor-pointer pt-2 pb-2   hover:bg-opacity-85 rounded">
+          <h1 className="font-semibold text-[20px]">By</h1>
+          <h1 className="font-semibold text-[30px]">Dormo</h1>
+        </div>
+        <div className="absolute"></div>
 
-        <FaArrowRight size={13} className="ml-[48%] mt-1" />
-      </div>
-
-      <div className="w-full">
         <Image
-          className="object-cover rounded"
-          src={openart}
+          className="object-cover rounded-xl border-none"
+          src={heroSection}
           alt="Sunglasses"
         />
       </div>

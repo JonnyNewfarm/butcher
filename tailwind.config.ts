@@ -1,3 +1,4 @@
+import React from "react";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -22,7 +23,9 @@ const config: Config = {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			'custom-color': '#fbfbfb',
-			'custom-color-light': '#E4D0D0',
+			'custom-color-light': '#EEE2DC',
+			'custom-color-primary': '#867070',
+			'custom-color-secondary': 'black',
 			   
   			card: {
   				DEFAULT: 'hsl(var(--card))',
@@ -65,6 +68,9 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),
+
+  ]
+  ,
 };
 export default config;

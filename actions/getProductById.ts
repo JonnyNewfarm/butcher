@@ -2,7 +2,7 @@
 import  prisma  from "@/libs/prismadb";
 
 interface IParams {
-    productId?: string;
+    productId: string;
   }
   
 

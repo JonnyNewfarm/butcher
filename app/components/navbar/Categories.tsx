@@ -5,12 +5,15 @@ import Container from "../Container";
 import Category from "./Category";
 
 import { navMenuItems } from "@/utils/NavMenuItems";
+import { usePathname } from "next/navigation";
 
 const Categories = () => {
   return (
-    <div className="bg-white h-12 shadow-sm">
-      <Container>
-        <div className="flex flex-row  items-center justify-center">
+    <div className="flex justify-center">
+      <div className="bg-opacity-0  lg:mt-[-50px] h-12  w-[500px]">
+        <div
+          className={`flex flex-row text-stone-800  items-center justify-center`}
+        >
           {navMenuItems.map((item) => (
             <Category
               key={item.label}
@@ -20,10 +23,7 @@ const Categories = () => {
             />
           ))}
         </div>
-        <div className="flex justify-center">
-          <span className="w-[80%] md:w-[50%] lg:w-[30%] h-[1px] bg-stone-400 shadow-sm absolute mt-[-40px]"></span>
-        </div>
-      </Container>
+      </div>
     </div>
   );
 };
