@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 
 const Categories = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center invisible lg:visible">
       <div className="bg-opacity-0  lg:mt-[-50px] h-12  w-[500px]">
         <div
           className={`flex flex-row text-stone-800  items-center justify-center`}

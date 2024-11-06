@@ -27,7 +27,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
           {isOpen && (
             <div
               className="absolute
-            rounded-md
+            rounded-xl
             shadow-lg
             w-[170px]
             bg-white
@@ -47,7 +47,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
                   <Link href={"/orders"}>
                     <MenuItem onClick={OpenMenu}>Your orders</MenuItem>
                   </Link>
-                  <hr />
+
                   <MenuItem
                     onClick={() => {
                       OpenMenu();

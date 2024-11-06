@@ -7,8 +7,8 @@ import { getLoggedInUser } from "@/actions/getLoggedInUser";
 import Categories from "./Categories";
 import SearchBar from "./SearchBar";
 import { CiHome } from "react-icons/ci";
-import HeroSection from "../home/HeroSection";
-import { IProductParams } from "@/actions/getProducts";
+
+import BurgerMenu from "./BurgerMenu";
 
 const NavBar = async () => {
   const currentUser = await getLoggedInUser();
@@ -20,7 +20,7 @@ const NavBar = async () => {
           <div className="flex  items-center justify-between gap text-black-3 md:gap-0">
             <Link
               href="/"
-              className="font-extrabold text-2xl ml-10  text-stone-800"
+              className="font-extrabold text-2xl lg:ml-10  text-stone-800"
             >
               Shades
             </Link>
@@ -32,6 +32,7 @@ const NavBar = async () => {
               </Link>
               <CartCounter />
               <NavMenu currentUser={currentUser} />
+              <BurgerMenu />
             </div>
           </div>
         </Container>

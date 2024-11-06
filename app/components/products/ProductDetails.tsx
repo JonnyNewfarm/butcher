@@ -166,7 +166,7 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
             </p>
             <div>
               <button
-                className="bg-custom-color-secondary text-white text-nowrap text- w-full pt-3 pb-3 hover:opacity-80"
+                className="bg-stone-800 rounded-xl hover:opacity-95 text-white text-nowrap text- w-full pt-3 pb-3 hover:opacity-80"
                 onClick={() => router.push("/cart")}
               >
                 View cart
@@ -218,7 +218,7 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
 
             <div className="justify-center flex mt-6">
               <button
-                className="bg-custom-color-secondary text-white text-nowrap text- w-full pt-3 pb-3"
+                className="bg-stone-800 hover:opacity-95 text-white text-nowrap text- w-full pt-3 pb-3 rounded-xl"
                 onClick={() => handleAddToCart(cartProduct)}
               >
                 Add to cart

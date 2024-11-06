@@ -49,7 +49,7 @@ const FilterGender = ({
         onClick={() => handleAccordion()}
         className="flex w-full justify-between"
       >
-        <h1 className="font-semibold">gender</h1>
+        <h1 className="font-semibold">Gender</h1>
         {accordionOpen ? <span>-</span> : <span>+</span>}
       </button>
       <div

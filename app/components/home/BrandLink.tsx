@@ -9,7 +9,7 @@ const BrandLink = ({ label }: BrandLinkProps) => {
   return (
     <Link
       key={label}
-      className="bg-stone-300 rounded-lg border-b-2 border-t-0 border-r-0 text-center  opacity-90 py-3 px-8 text-stone-800"
+      className="py-3 font-semibold px-8 text-stone-800"
       href={`/products?brand=${label}`}
     >
       {label}

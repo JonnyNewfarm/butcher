@@ -3,11 +3,8 @@ import getProducts, { IProductParams } from "@/actions/getProducts";
 import ProductCard from "@/app/components/products/productCard";
 import Container from "../components/Container";
 import NullData from "../components/nullData";
-import FilterProducts from "../components/products/FilterProducts";
-import { ProductType } from "../components/products/ProductDetails";
-import FilterPrice from "../components/products/FilterPrice";
+
 import FilterProductsMenu from "../components/products/FilterProductsMenu";
-import { Span } from "next/dist/trace";
 
 interface HomeProps {
   searchParams: IProductParams;
@@ -24,7 +21,7 @@ const ProductsPage = async ({ searchParams }: HomeProps) => {
     <Container>
       <div className="sticky">
         <div className="flex flex-row mt-8">
-          <div className="sticky z-10 border-stone-400 border-r-[0.5px] ">
+          <div className="sticky z-10 border-stone-400 border-r-[0.5px]">
             <FilterProductsMenu />
           </div>
           <div>

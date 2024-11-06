@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import React from "react";
 import FilterPrice from "./FilterPrice";
 import FilterProducts from "./FilterProducts";
@@ -14,6 +14,7 @@ const FilterProductsMenu = () => {
   const categoryParams = searchParams?.get("category");
   const priceParams = searchParams?.get("price");
   const brandParams = searchParams?.get("brand");
+
   if (brandParams) {
     return (
       <div className="mr-4 mt-8">

@@ -15,20 +15,23 @@ import navImageWomen from "@/public/navImageWomen.jpeg";
 interface CategoryProps {
   label?: string;
   gender?: string;
+  menuItems?: string;
 
   href?: string;
 }
 
-const Category = ({ label, href, gender }: CategoryProps) => {
+const Category = ({ label, href, gender, menuItems }: CategoryProps) => {
   const [open, setOpen] = useState(false);
   const showFlyOut = open && DropdownMenu;
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
+  const [menuItem, setMenuItem] = useState("");
 
   function handleFlyoutEnter() {
     setOpen(true);
     setBrand(`${label}`);
     setCategory(`${gender}`);
+    setMenuItem(`${label}`);
   }
   function handleFlyoutImage() {
     if (gender === "Women") {
@@ -37,6 +40,16 @@ const Category = ({ label, href, gender }: CategoryProps) => {
 
     if (gender === "Men") {
       return navImageMen;
+    }
+  }
+
+  function handleFlyout(menuItems: any) {
+    if (label === "Women") {
+      return "ml-[-60px]";
+    }
+
+    if (label === "Brands") {
+      return "ml-[-60px]";
     }
   }
 
@@ -64,8 +77,12 @@ const Category = ({ label, href, gender }: CategoryProps) => {
           </div>
 
           {showFlyOut && (
-            <div className="absoulte -translate-x-1/2 flex flex-row">
-              <div className="absolute -top-6 bg-custom-color border-stone-800 border-b-[1px] min-w-[500px] rounded-l p-4 gap-y-6 grid grid-cols-2 ">
+            <div
+              className={`absoulte -translate-x-1/2 flex flex-row ${handleFlyout(
+                menuItem
+              )}`}
+            >
+              <div className="absolute -top-6 bg-custom-color border-stone-800 border-b-[1px] min-w-[500px] rounded-xl p-4 gap-y-6 grid grid-cols-2 ">
                 <div className="grid grid-cols-1">
                   {categories.map((item) => (
                     <DropdownMenu
@@ -106,8 +123,7 @@ const Category = ({ label, href, gender }: CategoryProps) => {
           onMouseLeave={() => setOpen(false)}
         >
           <div className="px-10 pt-4 mb-8 flex flex-row  pb-4 ">
-            <Link
-              href={`/products?gender=${label}`}
+            <div
               className={`relative hover:text-stone-900  cursor-pointer
  
   `}
@@ -117,12 +133,14 @@ const Category = ({ label, href, gender }: CategoryProps) => {
                 style={{ transform: showFlyOut ? "scaleX(1)" : "scaleX(0)" }}
                 className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-full bg-stone-500 transition-transform duration-300 ease-out"
               />
-            </Link>
+            </div>
           </div>
 
           {showFlyOut && (
-            <div className="absoulte   -translate-x-1/2">
-              <div className="absolute -top-6 min-w-[280px]  gap-x-24 bg-custom-color rounded-l p-4 gap-y-6 grid grid-cols-2 ">
+            <div
+              className={`absoulte -translate-x-1/2 ${handleFlyout(menuItem)}`}
+            >
+              <div className="absolute  -top-6 min-w-[280px]  gap-x-24 bg-custom-color rounded-xl p-4 gap-y-6 grid grid-cols-2">
                 {brands.map((item) => (
                   <DropdownBrand
                     brands={item.label}

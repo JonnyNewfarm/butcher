@@ -27,19 +27,19 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="flex  items-end">
+    <div className="flex items-end">
       <form onSubmit={onSearch}>
         <input
           type="search"
           id="search"
           placeholder="Explore"
           value={searchQuery}
-          className={`p-2 w-[80%] md:w-[100%] h-9 border-stone-400 rounded-[3px] md:focus:outline-none focus:border-[0.5px] focus:border-stone-600 ${showInput}   `}
+          className={`p-2 absolute sm:relative h-9 left-10 right-5 rounded-xl  z-50 sm:l sm:mb-[-7px]   sm:mr-6 bottom-1 border-stone-400  md:focus:outline-none focus:border-[0.5px] focus:border-stone-600 ${showInput}   `}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </form>
       <CiSearch
-        className="stroke-[0.8] mb-[6px] cursor-pointer"
+        className="stroke-[0.8] ml-4 sm:mb-[4px]  cursor-pointer"
         size={25}
         onClick={handleInputVisability}
       />

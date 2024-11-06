@@ -36,7 +36,10 @@ query.category = category
                         query.brand = brand
                                 }
 
+                               
+
         const products = await prisma.product.findMany({
+            
          
             where:{
                 ...query,
@@ -61,8 +64,11 @@ query.category = category
             
             
         })
+       
         
 return products
+
+
     } catch(error: any) {
         throw new Error(error)
 

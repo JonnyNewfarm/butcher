@@ -27,11 +27,12 @@ const Button = ({
       onClick={onClick}
       className={`
         
-        rounded-md
+        rounded-xl
         hover:opacity-80
         transition
         w-[100%]
-        border-stone-700
+        bg-stone-800
+        text-custom-color
         items-center
         justify-center
         
