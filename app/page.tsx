@@ -36,10 +36,10 @@ export default async function Home() {
         <CategorySection />
       </div>
       <div className="flex flex-col md:flex-row md:justify-center bg-custom-color-light mt-[-180px] xl:mt-[-150px] md:mt-[-127px] py-20 md:px-10 px-5">
-        <div>
+        <div className="md:mt-10">
           <ImageSliderSection />
         </div>
-        <div className="md:w-[40%] mt-[-160px] md:mt-0 lg:w-[35%] xl:w-[30%]">
+        <div className="md:w-[40%] mt-[-160px] md:mt-10 lg:w-[35%] xl:w-[30%]">
           <ImageSlider imageUrls={imageSlides!} />
         </div>
       </div>
