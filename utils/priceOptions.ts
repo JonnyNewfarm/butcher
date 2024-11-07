@@ -1,14 +1,14 @@
 
 export const priceOptions = [
     {
-        label: "High to low",
+        label: "High-low",
         value: "Low"
         
     },
 
 
     {
-        label: "Low to high",
+        label: "Low-high",
         value: "high"
         
     }

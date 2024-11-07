@@ -73,7 +73,7 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
     }
   }
   return (
-    <div className="w-full h-full relative">
+    <div className="md:max-w-[500px] relative">
       <div className="w-full h-full overflow-hidden flex">
         {imageUrls.map((url) => (
           <Image

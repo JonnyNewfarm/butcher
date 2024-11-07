@@ -6,26 +6,20 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className=" flex flex-col-reverse rounded-xl   md:flex-row sm:flex-col-reverse justify-center relative z-10 md:mt-10 lg:mt-20 md:mb-28   mb-10 w-[80%]  bg-custom-color-light md:px-10">
-      <div className="flex flex-col md:w-[70%]  gap-2">
-        <div className="mt-[10px] md:mt-[40px] md:mr-2 sm:mt-[15px] lg:mt-[70px] xl:mt-[85px] 2xl:mt-[100px]">
-          <div className="text-[30px] mb-1 md:text-[25px] lg:text-[30px] xl:text-[45px]">
-            <p className="font-extrabold">Lorem ipsum</p>
-            <p className="font-bold mt-[-13px] text-nowrap">
-              {" "}
-              dolor libero vitae
-            </p>
-            <p className="font-bold mt-[-13px]"> neque</p>
+    <div className=" flex flex-col-reverse rounded-xl gap-x-32 md:flex-row sm:flex-col-reverse justify-center relative z-10 md:mt-10 lg:mt-20 md:mb-28   mb-10 w-[80%]  bg-custom-color-light lg:px-20 xl:px-28">
+      <div className="mt-5 text-left sm:items-center sm:justify-center flex flex-col">
+        <div>
+          <div className="text-left text-[35px] font-extrabold md:text-[30px] lg:text-[30px] xl:text-[45px] md:mt-[-20px]  2xl:text-[55px] text-nowrap">
+            <h1>New in</h1>
+            <h1 className="mt-[-15px]">By Dormo</h1>
+            <h1 className="mt-[-15px]">Fall collection</h1>
           </div>
-
-          <p className="pt-1 ">
-            Nam fermentum et libero vitae gravida. Phasellus{" "}
-          </p>
-          <p>consequat lorem integer neque diam.</p>
-          <hr className="w-[20%]" />
-        </div>
-
-        <div className="mt-5">
+          <div className="max-w-80 sm:w-full">
+            <p className="mb-5">
+              Donec mollis massa et mauris rhoncus aliquam. Fusce scelerisque,
+              risus eget suscipit blandit, nibh ante tincidunt.
+            </p>
+          </div>
           <Link
             className="bg-stone-800 hover:opacity-95 rounded-xl py-3 px-8 text-custom-color text-center"
             href={``}
@@ -35,7 +29,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="w-full lg:w-[60%] xl:w-[50%] relative">
+      <div className="w-full relative  xl:w-[45%]">
         <div className="absolute ml-[18%] sm:ml-[20%] mt-[15%] flex flex-col text-custom-color text-sm hover:scale-105 transition justify-center  cursor-pointer pt-2 pb-2   hover:bg-opacity-85 rounded">
           <h1 className="font-semibold text-[15px] sm:text-[20px] opacity-90">
             By

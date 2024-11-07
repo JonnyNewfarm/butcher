@@ -8,20 +8,19 @@ import Link from "next/link";
 const CategorySection = () => {
   return (
     <div className="w-full flex">
-      <Link href={"/products?gender=Men"} className="relative text-center">
-        <Image
-          className="relative object-cover h-[80%]"
-          src={closeupMan}
-          alt="man in sunglasses"
-        />
+      <Link href={"/products?gender=Men"} className="relative text-center h-64">
+        <Image className="relative" src={closeupMan} alt="man in sunglasses" />
         <div className="absolute mt-[-50px] w-full text-center  text-custom-color font-semibold text-xl">
           <h1>Men</h1>
         </div>
       </Link>
 
-      <Link href={"/products?gender=Women"} className="relative text-center">
+      <Link
+        href={"/products?gender=Women"}
+        className="relative text-center h-[80%]"
+      >
         <Image
-          className="relative object-cover h-[80%]"
+          className="relative object-cover"
           src={closeupWomen}
           alt="woman in sunglasses"
         />
@@ -30,9 +29,12 @@ const CategorySection = () => {
         </div>
       </Link>
 
-      <Link href={"/products?brand=Dormo"} className="relative text-center">
+      <Link
+        href={"/products?brand=Dormo"}
+        className="relative text-center h-[80%]"
+      >
         <Image
-          className="relative object-cover h-[80%]"
+          className="relative object-cover"
           src={closeupBrands}
           alt="sunglasses"
         />

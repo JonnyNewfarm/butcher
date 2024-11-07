@@ -1,6 +1,6 @@
 import getProductByBrand from "@/actions/getProductByBrand";
 import Container from "./components/Container";
-import Brands from "./components/home/Brands";
+
 import HeroSection from "./components/home/HeroSection";
 import ProductCard from "@/app/components/products/productCard";
 import CategorySection from "./components/home/CategorySection";
@@ -32,14 +32,12 @@ export default async function Home() {
           </div>
         </div>
       </Container>
-      <div className="mt-24 w-full">
+      <div className="mt-24 w-full flex flex-col bg-custom-color-light">
         <CategorySection />
-      </div>
-      <div className="flex flex-col md:flex-row md:justify-center bg-custom-color-light mt-[-180px] xl:mt-[-150px] md:mt-[-127px] py-20 md:px-10 px-5">
-        <div className="md:mt-10">
+
+        <div className="flex flex-col-reverse md:flex-row justify-center md:items-center bg-custom-color-light pb-20 sm:px-10 sm:py-8 md:py-20">
           <ImageSliderSection />
-        </div>
-        <div className="md:w-[40%] mt-[-160px] md:mt-10 lg:w-[35%] xl:w-[30%]">
+
           <ImageSlider imageUrls={imageSlides!} />
         </div>
       </div>
