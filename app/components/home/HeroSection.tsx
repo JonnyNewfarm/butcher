@@ -22,7 +22,7 @@ const HeroSection = () => {
           </div>
           <Link
             className="bg-stone-800 hover:opacity-95 rounded-xl py-3 px-8 text-custom-color text-center"
-            href={``}
+            href={`products?brand=Dormo`}
           >
             Shop now
           </Link>
@@ -36,12 +36,13 @@ const HeroSection = () => {
           </h1>
           <h1 className="font-semibold text-[25px] sm:text-[30px]">Dormo</h1>
         </div>
-
-        <Image
-          className="object-cover rounded-xl border-none"
-          src={heroSection}
-          alt="Sunglasses"
-        />
+        <Link href={`products?brand=Dormo`}>
+          <Image
+            className="object-cover rounded-xl border-none"
+            src={heroSection}
+            alt="Sunglasses"
+          />
+        </Link>
       </div>
     </div>
   );

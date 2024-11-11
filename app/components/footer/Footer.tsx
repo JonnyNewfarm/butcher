@@ -12,15 +12,14 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-stone-800 text-sm mt-16 text-slate-200">
+    <footer className="bg-stone-800 text-sm text-slate-200">
       <Container>
         <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
           <Footerlist>
             <h3 className="font-bold">Categories</h3>
             <Link href="#">Men</Link>
             <Link href="#">Women</Link>
-            <Link href="#">Sport</Link>
-            <Link href="#">Vintage</Link>
+
             <Link href="#">Designer</Link>
           </Footerlist>
           <Footerlist>

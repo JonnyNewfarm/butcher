@@ -115,6 +115,7 @@ const ImageSlider = ({ imageUrls }: ImageSliderProps) => {
       <div className="absolute bottom-0 py-2 bg-stone-800/20 w-full flex justify-center">
         {imageUrls.map((_, index) => (
           <button
+            key="image-slider-button"
             className="mx-10 bg-custom-color h-3 w-3 rounded-full border-[1px] border-stone-800/20"
             onClick={() => setImageIndex(index!)}
           ></button>

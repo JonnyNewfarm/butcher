@@ -30,6 +30,7 @@ const BurgerMenuAccBrands = ({ category, title }: BurgerMenuAccordionProps) => {
         <div className="overflow-hidden grid py-[5px] border-b-[1px]  border-stone-600 ">
           {brands.map((item) => (
             <Link
+              key={item.label}
               className="overflow-hidden py-1"
               href={`products?brands=${item.label}`}
             >

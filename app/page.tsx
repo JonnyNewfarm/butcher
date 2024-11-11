@@ -10,6 +10,7 @@ import sunglassesOnBeach from "@/public/sunglassesOnBeach.png";
 import sunglassesOnTowel from "@/public/sunglassesOnTowel.png";
 import sunglassesOnTable from "@/public/sunglassesOnTable.png";
 import ImageSliderSection from "./components/home/ImageSliderSection";
+import NewsLetter from "./components/home/NewsLetter";
 
 const imageSlides = [sunglassesOnBeach, sunglassesOnTable, sunglassesOnTowel];
 
@@ -24,7 +25,7 @@ export default async function Home() {
 
       <Container>
         <div className="mt-24 border-t-[1px] bg-custom-color w-full rounded-xl">
-          <h1 className="font-semibold">Dormo</h1>
+          <h1 className="font-semibold text-xl">By Dormo</h1>
           <div className="grid grid-cols-2 sm:grid-cols-3 p-6 rounded-xl lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-6  w-full">
             {products.map((product: any) => {
               return <ProductCard key={product.id} data={product} />;
@@ -41,6 +42,7 @@ export default async function Home() {
           <ImageSlider imageUrls={imageSlides!} />
         </div>
       </div>
+      <NewsLetter />
     </>
   );
 }

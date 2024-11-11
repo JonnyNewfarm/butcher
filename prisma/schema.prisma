@@ -106,3 +106,8 @@ model Product {
     inStock     Boolean?
     images      image[]
 }
+
+model Newsletter {
+    id    String  @id @default(auto()) @map("_id") @db.ObjectId
+    email String?
+}
