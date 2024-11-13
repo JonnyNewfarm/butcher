@@ -12,7 +12,7 @@ const NewsLetter = async () => {
         </p>
         <p></p>
       </div>
-      <div className="flex flex-col w-full md:w-[200px]">
+      <div className="flex flex-col w-full md:w-[200px] mt-4 md:mt-0">
         <h1>Your Email</h1>
         <NewsLetterForm />
       </div>

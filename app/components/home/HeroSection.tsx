@@ -34,7 +34,9 @@ const HeroSection = () => {
           <h1 className="font-semibold text-[15px] sm:text-[20px] opacity-90">
             By
           </h1>
-          <h1 className="font-semibold text-[25px] sm:text-[30px]">Dormo</h1>
+          <h1 className="font-semibold text-custom-color text-[25px] sm:text-[30px]">
+            Dormo
+          </h1>
         </div>
         <Link href={`products?brand=Dormo`}>
           <Image
