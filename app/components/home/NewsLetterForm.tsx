@@ -1,18 +1,29 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { AddNewsletterEmail } from "@/actions/addNewsletterEmail";
-import { error } from "console";
+
+import NewsLetterBtn from "./NewsLetterBtn";
+import toast, { Toaster } from "react-hot-toast";
 
 const NewsLetterForm = () => {
   const ref = useRef<HTMLFormElement>(null);
 
+  const [toastText, setToastText] = useState("");
+
   return (
     <form
+      className="relative"
       ref={ref}
       action={async (formData) => {
-        await AddNewsletterEmail(formData);
-
         ref.current?.reset();
+        const result = await AddNewsletterEmail(formData);
+        if (result?.error) {
+          toast.error(result.error);
+          setToastText(result.error);
+        } else {
+          toast.success("Email added");
+          setToastText("");
+        }
       }}
     >
       <input
@@ -23,12 +34,8 @@ const NewsLetterForm = () => {
         type="email"
         required
       />
-      <button
-        type="submit"
-        className="bg-stone-800 mt-1 text-custom-color py-2 rounded-xl w-[100px]"
-      >
-        Sign up
-      </button>
+      {toastText && <p className="text-red-900">{toastText}</p>}
+      <NewsLetterBtn />
     </form>
   );
 };

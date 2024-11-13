@@ -30,8 +30,8 @@ export default async function RootLayout({
         <Toaster
           toastOptions={{
             style: {
-              background: "rgb(51 65 85)",
-              color: "#FFFFFF",
+              background: "rgb(41 37 36)",
+              color: "#EEE2DC",
             },
           }}
         />

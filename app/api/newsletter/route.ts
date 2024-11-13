@@ -2,16 +2,20 @@ import {prisma} from '@/prisma/prisma'
 import { NextResponse } from 'next/server'
 
 
-export async function POST(request: Request) {
-    const body = await request.json()
-    const { email} = body
-    
+export async function POST(formData:FormData) {
+   const email = formData.get("newsInput")
+    let error = ""
 
-    const newsletter = await prisma.newsletter.create({
+    const data = await prisma.newsletter.create({
         data: {
-        email, 
-        }
-    })
+          email: email as string,
+        },
+      });
 
-    return NextResponse.json(newsletter)
+    return NextResponse.json(data)
 }
+
+
+
+
+
