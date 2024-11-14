@@ -1,3 +1,4 @@
+"use client";
 import { Order } from "@prisma/client";
 import Heading from "../components/Heading";
 import moment from "moment/moment";
@@ -16,32 +17,29 @@ const OrderDetails = ({ order }: OrderDetailsProps) => {
       <div className="mt-8">
         <Heading title="Order details" />
       </div>
-      <div>Order id: {order.id}</div>
-      <div>
-        Total amount:{"  "}
-        <span className="font-semibold">{formatPrice(order.totalAmount!)}</span>
+      <div className="flex flex-col">
+        <p className="font-semibold">Order id:</p>
+        <p>{order.id}</p>
       </div>
+      <div className="flex flex-col">
+        <p className="font-semibold">Total amount:</p>
+        <span className="">{formatPrice(order.totalAmount!)}</span>
+      </div>
+
       <div>
-        <div>Shipment status:</div>
+        <div className="font-semibold">Shipment status:</div>
         <div className="max-w-36">
           {order.deliveryStatus === "sent" ? (
-            <Status
-              text="Package sent"
-              icon={MdAccessTimeFilled}
-              bg="bg-green-200"
-              color="text-green-700"
-            />
+            <p>Package sent</p>
           ) : (
-            <Status
-              text="Pending"
-              icon={MdClose}
-              bg="bg-slate-200"
-              color="text-slate-700"
-            />
+            <p>Pending..</p>
           )}
         </div>
       </div>
-      <div>Ordered: {moment(order.createdAt!).fromNow()}</div>
+      <div>
+        <div className="font-semibold">Ordered:</div>
+        <div>{moment(order.createdAt!).fromNow()}</div>
+      </div>
 
       <div>
         <h2 className="font-semibold mt-4 ">Products ordered</h2>

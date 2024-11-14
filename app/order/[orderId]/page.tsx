@@ -1,3 +1,4 @@
+"use server";
 import getOrderById from "@/actions/getOrderById";
 import Container from "@/app/components/Container";
 import NullData from "@/app/components/nullData";

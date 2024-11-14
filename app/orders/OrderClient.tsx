@@ -48,7 +48,6 @@ const ManageOrderClient = ({ orders }: ManageOrderClientProps) => {
   }
 
   const columns: GridColDef[] = [
-    { field: "id", headerName: "ID", width: 220 },
     {
       field: "name",
       headerName: "Customer name",
@@ -65,14 +64,7 @@ const ManageOrderClient = ({ orders }: ManageOrderClientProps) => {
         return <div className="font-bold">{params.row.total}</div>;
       },
     },
-    {
-      field: "userId",
-      headerName: "userId",
-      width: 220,
-      renderCell: (params) => {
-        return <div className="font-bold">{params.row.userId}</div>;
-      },
-    },
+
     {
       field: "country",
       headerName: "Country",
@@ -123,21 +115,11 @@ const ManageOrderClient = ({ orders }: ManageOrderClientProps) => {
       width: 120,
       renderCell: (params) => {
         return (
-          <div>
+          <div className="font-semibold text-green-700">
             {params.row.deliveryStatus === "sent" ? (
-              <Status
-                text="Package sent"
-                icon={MdAccessTimeFilled}
-                bg="bg-green-200"
-                color="text-green-700"
-              />
+              <p>Package sent</p>
             ) : (
-              <Status
-                text="Pending"
-                icon={MdClose}
-                bg="bg-slate-200"
-                color="text-slate-700"
-              />
+              <p>Pending..</p>
             )}
           </div>
         );
