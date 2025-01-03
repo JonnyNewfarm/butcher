@@ -1,4 +1,4 @@
-import Stripe from 'stripe';
+import { stripe } from '@/libs/stripe';
 
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -17,9 +17,7 @@ export async function OPTIONS() {
 
 
 
-const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!, {
-  typescript: true
-});
+
 
 export async function POST(req: NextRequest) {
   
