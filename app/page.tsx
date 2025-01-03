@@ -2,7 +2,7 @@ import getProductByBrand from "@/actions/getProductByBrand";
 import Container from "./components/Container";
 
 import HeroSection from "./components/home/HeroSection";
-import ProductCard from "@/app/components/products/productCard";
+import ProductCard from "@/app/components/products/ProductCard";
 import CategorySection from "./components/home/CategorySection";
 import ImageSlider from "./components/home/ImageSlider";
 

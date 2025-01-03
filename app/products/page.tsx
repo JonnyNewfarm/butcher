@@ -1,6 +1,6 @@
 export const revalidate = 0;
 import getProducts, { IProductParams } from "@/actions/getProducts";
-import ProductCard from "@/app/components/products/productCard";
+import ProductCard from "@/app/components/products/ProductCard";
 import Container from "../components/Container";
 import NullData from "../components/nullData";
 
