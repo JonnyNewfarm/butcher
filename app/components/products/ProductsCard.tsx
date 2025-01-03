@@ -10,7 +10,7 @@ interface ProductCardProps {
   data: any;
 }
 
-const ProductCard = ({ data }: ProductCardProps) => {
+const ProductsCard = ({ data }: ProductCardProps) => {
   const router = useRouter();
 
   return (
@@ -61,4 +61,4 @@ const ProductCard = ({ data }: ProductCardProps) => {
   );
 };
 
-export default ProductCard;
+export default ProductsCard;

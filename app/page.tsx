@@ -2,7 +2,7 @@ import getProductByBrand from "@/actions/getProductByBrand";
 import Container from "./components/Container";
 
 import HeroSection from "./components/home/HeroSection";
-import ProductCard from "@/app/components/products/ProductCard";
+import ProductsCard from "@/app/components/products/ProductsCard";
 import CategorySection from "./components/home/CategorySection";
 import ImageSlider from "./components/home/ImageSlider";
 
@@ -28,7 +28,7 @@ export default async function Home() {
           <h1 className="font-semibold text-xl">By Dormo</h1>
           <div className="grid grid-cols-2 sm:grid-cols-3 p-6 rounded-xl lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-6  w-full">
             {products.map((product: any) => {
-              return <ProductCard key={product.id} data={product} />;
+              return <ProductsCard key={product.id} data={product} />;
             })}
           </div>
         </div>

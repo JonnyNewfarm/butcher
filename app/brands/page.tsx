@@ -1,13 +1,10 @@
 export const revalidate = 0;
 import getProducts, { IProductParams } from "@/actions/getProducts";
-import ProductCard from "@/app/components/products/ProductCard";
 import Container from "../components/Container";
 import NullData from "../components/nullData";
-import FilterProducts from "../components/products/FilterProducts";
-import { ProductType } from "../components/products/ProductDetails";
-import FilterPrice from "../components/products/FilterPrice";
+import ProductsCard from "../components/products/ProductsCard";
+
 import FilterProductsMenu from "../components/products/FilterProductsMenu";
-import { Span } from "next/dist/trace";
 
 interface HomeProps {
   searchParams: IProductParams;
@@ -52,7 +49,7 @@ const ProductsPage = async ({ searchParams }: HomeProps) => {
                   }
                 })
                 .map((product: any) => {
-                  return <ProductCard key={product.id} data={product} />;
+                  return <ProductsCard key={product.id} data={product} />;
                 })}
             </div>
           </div>
