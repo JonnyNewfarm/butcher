@@ -10,7 +10,7 @@ import { getLoggedInUser } from "@/actions/getLoggedInUser";
 const poppins = Mulish({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata = {
-  title: "test",
+  title: "shades",
   content:
     "connect-src 'self' js.stripe.com code.jquery.com cdn.jsdelivr.net maps.googleapis.com  'unsafe-eval'; ",
 };
