@@ -11,7 +11,7 @@ interface BurgerMenuAccordionProps {
 const BurgerMenuAccBrands = ({ category, title }: BurgerMenuAccordionProps) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="py-2">
+    <div className="py-2 ">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex justify-between w-full"
@@ -32,7 +32,7 @@ const BurgerMenuAccBrands = ({ category, title }: BurgerMenuAccordionProps) => {
             <Link
               key={item.label}
               className="overflow-hidden py-1"
-              href={`products?brands=${item.label}`}
+              href={`products?brand=${item.label}`}
             >
               {item.label}
             </Link>

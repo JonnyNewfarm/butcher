@@ -44,10 +44,10 @@ const FilterPriceBrand = ({
   };
 
   return (
-    <div className="py-2">
+    <div className="sm:py-2">
       <button
         onClick={() => handleAccordion()}
-        className="flex w-full justify-between"
+        className="flex  justify-between"
       >
         <h1 className="font-semibold">Price</h1>
         {accordionOpen ? <span>-</span> : <span>+</span>}

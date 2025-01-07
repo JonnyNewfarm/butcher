@@ -18,7 +18,7 @@ const FilterProducts = ({ genderParam }: FilterProductsProps) => {
     }
   };
   return (
-    <div className="py-2">
+    <div className="sm:py-2">
       <button
         onClick={() => handleAccordion()}
         className="flex justify-between w-full"

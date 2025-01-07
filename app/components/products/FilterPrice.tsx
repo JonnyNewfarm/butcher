@@ -30,12 +30,12 @@ const FilterPrice = ({
   };
 
   return (
-    <div className="">
+    <div className="sm:py-2">
       <button
         onClick={() => handleAccordion()}
-        className="flex w-full justify-between"
+        className="flex  justify-between"
       >
-        <h1 className="font-semibold">Price</h1>
+        <h1 className="font-semibold text-nowrap">Price</h1>
         {accordionOpen ? <span>-</span> : <span>+</span>}
       </button>
       <div
@@ -46,7 +46,7 @@ const FilterPrice = ({
            : `grid-rows-[0fr] opacity-0`
        }`}
       >
-        <div className="overflow-hidden grid py-[5px] border-b-[1px]  border-stone-600 ">
+        <div className="overflow-hidden grid py-[5px] border-b-[1px]  border-stone-600">
           {priceOptions.map((item) => (
             <Link
               className="text-nowrap hover:underline"

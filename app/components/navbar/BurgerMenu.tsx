@@ -7,14 +7,14 @@ import BurgerMenuAccBrands from "./BurgerMenuAccBrands";
 const BurgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="relative lg:hidden">
+    <div className="relative lg:hidden ">
       <CiMenuBurger
         className="cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
         size={24}
       />
       <div
-        className={`absolute lg:hidden  bg-custom-color rounded-xl
+        className={`absolute lg:hidden border-[1px] border-stone-200  bg-custom-color rounded-xl
         mt-5 min-w-[200px] p-9 right-3 flex flex-col gap-y-5
         transform transition-transform ease-in-out ${
           isOpen ? "visable" : "invisible"

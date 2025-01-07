@@ -41,10 +41,10 @@ const FilterProductsBrand = ({
     }
   };
   return (
-    <div className="py-2">
+    <div className="sm:py-2">
       <button
         onClick={() => handleAccordion()}
-        className="flex justify-between w-full"
+        className="flex justify-between"
       >
         <h1 className="font-semibold text-nowrap">Category</h1>
         {accordionOpen ? <span>-</span> : <span>+</span>}

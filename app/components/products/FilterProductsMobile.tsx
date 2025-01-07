@@ -8,7 +8,7 @@ import FilterPriceBrand from "./FilterPriceBrands";
 import FilterProductsBrand from "./FilterProductsBrand";
 import FilterGender from "./FilterGenderBrand";
 
-const FilterProductsMenu = () => {
+const FilterProductsMobile = () => {
   const searchParams = useSearchParams();
   const genderParams = searchParams?.get("gender");
   const categoryParams = searchParams?.get("category");
@@ -17,7 +17,7 @@ const FilterProductsMenu = () => {
 
   if (brandParams) {
     return (
-      <div className="mr-4 mt-8 hidden sm:block">
+      <div className="sm:hidden flex flex-row gap-x-4">
         <FilterPriceBrand
           genderParam={genderParams!}
           categoryParam={categoryParams!}
@@ -39,7 +39,7 @@ const FilterProductsMenu = () => {
     );
   } else {
     return (
-      <div className="mr-4 mt-8 sm:block hidden">
+      <div className="sm:hidden flex flex-row gap-x-4">
         <FilterPrice
           genderParam={genderParams!}
           categoryParam={categoryParams!}
@@ -50,4 +50,4 @@ const FilterProductsMenu = () => {
   }
 };
 
-export default FilterProductsMenu;
+export default FilterProductsMobile;

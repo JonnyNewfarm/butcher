@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import NullData from "../components/nullData";
 
 import FilterProductsMenu from "../components/products/FilterProductsMenu";
+import FilterProductsMobile from "../components/products/FilterProductsMobile";
 
 interface HomeProps {
   searchParams: IProductParams;
@@ -28,17 +29,22 @@ const ProductsPage = async ({ searchParams }: HomeProps) => {
             <div className="sticky z-10 border-stone-400 border-r-[0.5px]">
               <FilterProductsMenu />
             </div>
-            <div>
+            <div className="w-full">
               {!searchParams.brand ? (
-                <span className="pl-3 font-semibold">
-                  {searchParams.category}
-                </span>
+                <div className="flex flex-row justify-between">
+                  <span className="pl-3 ">{searchParams.category}</span>
+
+                  <FilterProductsMobile />
+                </div>
               ) : (
-                <span className="pl-3 font-semibold">{searchParams.brand}</span>
+                <div className="flex flex-row justify-between">
+                  <span className="pl-3">{searchParams.brand}</span>
+                  <FilterProductsMobile />
+                </div>
               )}
               <div
                 style={{ scrollbarWidth: "thin" }}
-                className="grid grid-cols-2 shadow-inner overflow-y-auto h-[500px] scroll-smooth  shadow-stone-300 border-t-[1px] px-6 border-stone-400 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-8"
+                className="grid grid-cols-2  shadow-inner overflow-y-auto h-[500px] scroll-smooth  shadow-stone-300 border-t-[1px] px-6 border-stone-400 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-8"
               >
                 {products
                   .sort((a, b) => {
