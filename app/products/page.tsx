@@ -39,6 +39,7 @@ const ProductsPage = async ({ searchParams }: HomeProps) => {
               ) : (
                 <div className="flex flex-row justify-between">
                   <span className="pl-3">{searchParams.brand}</span>
+
                   <FilterProductsMobile />
                 </div>
               )}
