@@ -14,18 +14,18 @@ const NavBar = async () => {
   const currentUser = await getLoggedInUser();
 
   return (
-    <div className="sticky top-0 z-30 bg-custom-color-light text-stone-800">
+    <div className="sticky top-0 z-30 bg-[#7b796a] backdrop-blur-lg text-white transition-all">
       <div className="py-3  h-14 align-middle">
         <Container>
-          <div className="flex  items-center justify-between gap text-black-3 md:gap-0">
+          <div className="flex  items-center justify-between gap text-white md:gap-0">
             <Link
               href="/"
-              className="font-extrabold text-2xl lg:ml-10  text-stone-800"
+              className="font-extrabold text-2xl lg:ml-10  text-white"
             >
               Shades
             </Link>
 
-            <div className="flex text-slate-800 items-center gap-8 md:gap-10">
+            <div className="flex text-white items-center gap-8 md:gap-10">
               <SearchBar />
               <Link href={"/"}>
                 <CiHome strokeWidth={0.5} size={26} />

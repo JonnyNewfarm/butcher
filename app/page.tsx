@@ -19,9 +19,7 @@ export default async function Home() {
 
   return (
     <>
-      <div className="justify-center flex bg-custom-color-light w-full">
-        <HeroSection />
-      </div>
+      <div className="justify-center flex w-full h-screen bg-[url('/coolbg.jpg')] bg-cover"></div>
 
       <Container>
         <div className="mt-24 border-t-[1px] bg-custom-color w-full rounded-xl">
