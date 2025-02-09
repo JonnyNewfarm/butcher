@@ -21,7 +21,7 @@ export default async function Home() {
             <h1 className="text-8xl  font-[900]">Dormo</h1>
             <div className="h-[2px] w-full bg-black" />
 
-            <h1 className="font-extrabold text-7xl mb-5 ml-1">New in</h1>
+            <h1 className="font-extrabold text-7xl mb-4 ml-1">New in</h1>
             <Link
               href={"/products?brand=Dormo"}
               className="border-[2px] [@media(min-width:374px)]:py-2 [@media(min-width:389px)]:py-3  max-w-36 text-center text-nowrap border-black py-3 px-5 font-semibold text-lg mt-6 bg-stone-900 text-white rounded-xl hover:bg-slate-900/90"
