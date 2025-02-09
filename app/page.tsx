@@ -45,7 +45,7 @@ export default async function Home() {
       <div className="w-full flex flex-col ">
         <CategorySection />
 
-        <div className="flex flex-col bg-[#eaeae8] md:flex-row md:justify-between md:items-center">
+        <div className="flex flex-col bg-gradient-to-r from-[#eaeae8] to-[#d8d8d6] lg:flex-row md:justify-between md:items-center">
           <ImageSliderSection />
           <ImageCollection />
         </div>
