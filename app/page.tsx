@@ -42,10 +42,10 @@ export default async function Home() {
           </div>
         </div>
       </Container>
-      <div className="bg-gradient-to-r from-[#eaeae8] from-10% via-[#acaea1] via-50% to-[#7f8175] to-80% mt-24 w-full flex flex-col ">
+      <div className="w-full flex flex-col ">
         <CategorySection />
 
-        <div className="flex flex-col-reverse md:flex-row md:justify-between md:items-center  pb-20 sm:px-10 sm:py-8 md:py-20 md:px-40">
+        <div className="flex flex-col bg-[#eaeae8] md:flex-row md:justify-between md:items-center">
           <ImageSliderSection />
           <ImageCollection />
         </div>

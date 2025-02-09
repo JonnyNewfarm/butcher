@@ -8,10 +8,10 @@ import Link from "next/link";
 
 const CategorySection = () => {
   return (
-    <div className="w-full flex">
-      <Link href={"/products?gender=Men"} className="relative text-center h-64">
+    <div className="w-full flex flex-col sm:flex-row">
+      <Link href={"/products?gender=Men"} className="relative text-center">
         <Image className="relative" src={closeupMan} alt="man in sunglasses" />
-        <div className="absolute mt-[-50px] w-full text-center  text-custom-color font-semibold text-xl">
+        <div className="absolute mt-[-110px] w-full text-center  text-custom-color font-semibold text-5xl">
           <h1>Men</h1>
         </div>
       </Link>
@@ -25,7 +25,7 @@ const CategorySection = () => {
           src={closeupWomen}
           alt="woman in sunglasses"
         />
-        <div className="absolute mt-[-50px] w-full text-center  text-custom-color font-semibold text-xl">
+        <div className="absolute mt-[-110px] w-full text-center  text-custom-color font-semibold  text-5xl">
           <h1>Women</h1>
         </div>
       </Link>
@@ -39,7 +39,7 @@ const CategorySection = () => {
           src={closeupBrands}
           alt="sunglasses"
         />
-        <div className="absolute mt-[-50px] w-full text-center  text-custom-color font-semibold text-xl">
+        <div className="absolute mt-[-110px] w-full text-center  text-custom-color font-semibold text-5xl">
           <h1>Brands</h1>
         </div>
       </Link>
