@@ -33,7 +33,7 @@ export default async function Home() {
       </div>
 
       <Container>
-        <div className="mt-24 border-t-[1px] bg-custom-color w-full rounded-xl">
+        <div className="py-5 border-t-[1px] bg-custom-color w-full rounded-xl">
           <h1 className="font-semibold text-xl">By Dormo</h1>
           <div className="grid grid-cols-2 sm:grid-cols-3 p-6 rounded-xl lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-6 gap-6  w-full">
             {products.map((product: any) => {
