@@ -16,7 +16,7 @@ export default async function Home() {
     <>
       <div className="w-full h-screen sm:bg-[url('/small-hero.jpg')] bg-[url('/mobilehero2.jpg')] md:bg-[url('/medium-hero.jpg')] lg:bg-[url('/coolbg.jpg')] bg-cover">
         <div className="w-full flex justify-center sm:justify-start lg:ml-52 md:ml-28 sm:ml-20 h-full align-middle sm:items-center">
-          <div className="mt-[60px]">
+          <div className="mt-[45px]">
             <h1 className="font-extrabold text-3xl ml-1 -mb-3">By </h1>
             <h1 className="text-8xl  font-[900]">Dormo</h1>
             <div className="h-[2px] w-full bg-black" />
@@ -24,7 +24,7 @@ export default async function Home() {
             <h1 className="font-extrabold text-7xl mb-5 ml-1">New in</h1>
             <Link
               href={"/products?brand=Dormo"}
-              className="border-[2px] hidden sm:block max-w-36 text-center text-nowrap border-black py-3 px-5 font-semibold text-lg mt-6 bg-stone-900 text-white rounded-xl hover:bg-slate-900/90"
+              className="border-[2px]  max-w-36 text-center text-nowrap border-black py-3 px-5 font-semibold text-lg mt-6 bg-stone-900 text-white rounded-xl hover:bg-slate-900/90"
             >
               Shop now
             </Link>
