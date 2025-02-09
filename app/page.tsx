@@ -34,7 +34,7 @@ export default async function Home() {
       <div className="mt-24 w-full flex flex-col bg-custom-color-light">
         <CategorySection />
 
-        <div className="flex flex-col-reverse md:flex-row justify-center md:items-center bg-custom-color-light pb-20 sm:px-10 sm:py-8 md:py-20">
+        <div className="flex flex-col-reverse md:flex-row justify-center md:items-center bg-[#e4e4e1]  pb-20 sm:px-10 sm:py-8 md:py-20">
           <ImageSliderSection />
 
           <ImageSlider imageUrls={imageSlides!} />
