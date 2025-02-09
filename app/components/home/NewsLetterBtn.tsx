@@ -8,7 +8,7 @@ const NewsLetterBtn = () => {
   return (
     <button
       type="submit"
-      className="bg-stone-800 mt-1 text-custom-color py-2 rounded-xl w-[100px] text-nowrap"
+      className="bg-stone-900 mt-1 text-custom-color py-2 rounded-xl w-[100px] text-nowrap"
     >
       {pending ? "..." : "Sign up"}
     </button>

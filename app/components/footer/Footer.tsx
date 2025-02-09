@@ -12,7 +12,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-stone-800 text-sm text-slate-200">
+    <footer className="bg-stone-900 text-sm text-slate-200">
       <Container>
         <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
           <Footerlist>
