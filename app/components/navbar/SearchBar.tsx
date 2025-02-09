@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { CiSearch } from "react-icons/ci";
 
 const SearchBar = () => {
@@ -34,12 +33,12 @@ const SearchBar = () => {
           id="search"
           placeholder="Explore"
           value={searchQuery}
-          className={`p-2 absolute sm:relative h-9  left-10 right-5 rounded-xl  z-50 sm:l sm:mb-[-7px]   sm:mr-6 bottom-1 border-stone-400  md:focus:outline-none focus:border-[0.5px] focus:border-stone-600 ${showInput}   `}
+          className={`p-2 absolute sm:relative h-9  left-10 right-5 rounded-xl  z-50 sm:l sm:mb-[-8px]   sm:mr-6 bottom-1 border-stone-400  md:focus:outline-none focus:border-[0.5px] focus:border-stone-600 ${showInput}   `}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </form>
       <CiSearch
-        className="stroke-[0.8] ml-4 sm:mb-[4px]  cursor-pointer"
+        className="stroke-[0.8] ml-4  cursor-pointer"
         size={25}
         onClick={handleInputVisability}
       />
