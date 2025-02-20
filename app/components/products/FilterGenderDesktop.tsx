@@ -14,7 +14,7 @@ interface FilterProductsProps {
   brandParam?: string;
 }
 
-const FilterGender = ({
+const FilterGenderDesktop = ({
   genderParam,
   categoryParam,
   priceParam,
@@ -22,16 +22,19 @@ const FilterGender = ({
 }: FilterProductsProps) => {
   const handleGender = (genderLabel: string) => {
     if (categoryParam && priceParam) {
-      return `/products?brand=${brandParam}&category=${categoryParam}&price=${priceParam}&gender=${genderLabel}`;
+      return `/products?gender=${genderLabel}&category=${categoryParam}&price=${priceParam}`;
     }
     if (categoryParam) {
-      return `/products?brand=${brandParam}&category=${categoryParam}&gender=${genderLabel}`;
+      return `/products?gender=${genderLabel}&category=${categoryParam}`;
+    }
+    if (genderParam) {
+      return `/products?gender=${genderLabel}&price=${priceParam}`;
     }
 
     if (priceParam) {
-      return `/products?brand=${brandParam}&gender=${genderLabel}&price=${priceParam}`;
+      return `/products?gender=${genderLabel}&price=${priceParam}`;
     } else {
-      return `/products?brand=${brandParam}&gender=${genderLabel}`;
+      return `/products?gender=${genderLabel}`;
     }
   };
   const [accordionOpen, setAccordionOpen] = useState(false);
@@ -48,9 +51,9 @@ const FilterGender = ({
     <div className="sm:py-2">
       <button
         onClick={() => handleAccordion()}
-        className="flex justify-between gap-x-1 items-center"
+        className="flex justify-between items-center gap-x-1"
       >
-        <h1 className="font-semibold text-lg">Gender</h1>
+        <h1 className="font-semibold text-nowrap text-lg">Gender</h1>
         {accordionOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       <div
@@ -78,4 +81,4 @@ const FilterGender = ({
   );
 };
 
-export default FilterGender;
+export default FilterGenderDesktop;

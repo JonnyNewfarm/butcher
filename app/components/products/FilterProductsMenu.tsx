@@ -7,6 +7,7 @@ import FilterProducts from "./FilterProducts";
 import FilterPriceBrand from "./FilterPriceBrands";
 import FilterProductsBrand from "./FilterProductsBrand";
 import FilterGender from "./FilterGenderBrand";
+import FilterGenderDesktop from "./FilterGenderDesktop";
 
 const FilterProductsMenu = () => {
   const searchParams = useSearchParams();
@@ -45,6 +46,11 @@ const FilterProductsMenu = () => {
           categoryParam={categoryParams!}
         />
         <FilterProducts genderParam={genderParams!} />
+        <FilterGenderDesktop
+          categoryParam={categoryParams!}
+          priceParam={priceParams!}
+          genderParam={genderParams!}
+        />
       </div>
     );
   }

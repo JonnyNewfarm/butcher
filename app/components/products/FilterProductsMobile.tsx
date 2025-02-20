@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+
 import { usePathname, useSearchParams } from "next/navigation";
 import React from "react";
 import FilterPrice from "./FilterPrice";
@@ -17,7 +17,7 @@ const FilterProductsMobile = () => {
 
   if (brandParams) {
     return (
-      <div className="sm:hidden flex flex-row gap-x-4">
+      <div className="sm:hidden flex flex-row gap-x-4 mt-3">
         <FilterPriceBrand
           genderParam={genderParams!}
           categoryParam={categoryParams!}
@@ -39,12 +39,14 @@ const FilterProductsMobile = () => {
     );
   } else {
     return (
-      <div className="sm:hidden flex flex-row gap-x-4">
+      <div className="sm:hidden flex flex-row gap-x-4 mt-3">
         <FilterPrice
           genderParam={genderParams!}
           categoryParam={categoryParams!}
         />
+
         <FilterProducts genderParam={genderParams!} />
+        <FilterGender genderParam={genderParams!} />
       </div>
     );
   }

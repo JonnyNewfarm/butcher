@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import React, { useState } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 interface FilterProductsProps {
   genderParam?: string;
   categoryParam?: string;
@@ -33,10 +34,16 @@ const FilterPrice = ({
     <div className="sm:py-2">
       <button
         onClick={() => handleAccordion()}
-        className="flex  justify-between"
+        className="flex items-center gap-x-1  justify-between"
       >
-        <h1 className="font-semibold text-nowrap">Price</h1>
-        {accordionOpen ? <span>-</span> : <span>+</span>}
+        <h1 className="font-semibold text-lg text-nowrap">Price</h1>
+        {accordionOpen ? (
+          <FaChevronUp />
+        ) : (
+          <span>
+            <FaChevronDown />
+          </span>
+        )}
       </button>
       <div
         className={`grid overflow-hidden transition-all duration-300 ease-in-out
@@ -49,7 +56,7 @@ const FilterPrice = ({
         <div className="overflow-hidden grid py-[5px] border-b-[1px]  border-stone-600">
           {priceOptions.map((item) => (
             <Link
-              className="text-nowrap hover:underline"
+              className="text-nowrap hover:underline text-lg"
               key={item.label}
               href={`/products?gender=${genderParam}&category=${categoryParam}&price=${item.value}`}
             >

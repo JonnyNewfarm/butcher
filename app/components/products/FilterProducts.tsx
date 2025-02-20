@@ -3,6 +3,7 @@ import { categories } from "@/utils/categories";
 import Link from "next/link";
 
 import React, { useState } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 interface FilterProductsProps {
   genderParam?: string;
 }
@@ -21,10 +22,10 @@ const FilterProducts = ({ genderParam }: FilterProductsProps) => {
     <div className="sm:py-2">
       <button
         onClick={() => handleAccordion()}
-        className="flex justify-between w-full"
+        className="flex items-center gap-x-1 justify-between w-full"
       >
-        <h1 className="font-semibold text-nowrap">Category</h1>
-        {accordionOpen ? <span>-</span> : <span>+</span>}
+        <h1 className="font-semibold text-nowrap text-lg">Category</h1>
+        {accordionOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       <div
         className={`grid transition-all duration-300 ease-in-out
@@ -37,7 +38,7 @@ const FilterProducts = ({ genderParam }: FilterProductsProps) => {
         <div className="overflow-hidden grid py-[5px] border-b-[1px]  border-stone-600">
           {categories.map((item) => (
             <Link
-              className="hover:underline"
+              className="hover:underline text-lg"
               key={item.label}
               href={`/products?gender=${genderParam}&category=${item.label}`}
             >
