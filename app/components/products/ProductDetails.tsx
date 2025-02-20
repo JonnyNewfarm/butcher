@@ -130,14 +130,14 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
   }, [cartProduct]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:mt-10">
       <ProductDetailsImg
         handleImage={handleImageSelector}
         cartProduct={cartProduct}
         product={product}
       />
-      <div>
-        <h2 className="text-3xl font-medium">{product.name}</h2>
+      <div className="bg-stone-200/50 p-5 rounded-xl">
+        <h2 className="text-4xl font-bold ">{product.name}</h2>
         <div className="flex gap-2 items-center"></div>
         <HR />
         <div className="text-justify">{product.description}</div>
@@ -166,7 +166,7 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
             </p>
             <div>
               <button
-                className="bg-stone-800 rounded-xl hover:opacity-95 text-white text-nowrap text- w-full pt-3 pb-3 hover:opacity-80"
+                className="bg-stone-800 rounded-xl hover:opacity-95 text-white text-nowrap text- w-full pt-3 pb-3"
                 onClick={() => router.push("/cart")}
               >
                 View cart
@@ -218,7 +218,7 @@ const ProductDetails = ({ product }: ProductDetailProps) => {
 
             <div className="justify-center flex mt-6">
               <button
-                className="bg-stone-800 hover:opacity-95 text-white text-nowrap text- w-full pt-3 pb-3 rounded-xl"
+                className="bg-stone-800 hover:opacity-95 text-white text-nowrap text-lg w-full pt-3 pb-3 rounded-xl"
                 onClick={() => handleAddToCart(cartProduct)}
               >
                 Add to cart

@@ -34,7 +34,7 @@ items-center
 justify-center
 gap-4
 cursor-pointer
-border
+border-r
 h-full
 
 max-h-[500px]
