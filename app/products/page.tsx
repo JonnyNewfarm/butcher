@@ -21,12 +21,16 @@ const ProductsPage = async ({ searchParams }: HomeProps) => {
   return (
     <>
       <div className="flex justify-center items-center text-lg font-semibold text-white bg-stone-600 shadow-md py-1">
-        Free shipping in february
+        Free shipping in February
       </div>
-      <div className="flex flex-col sm:flex-row ">
-        <div className="sm:w-52 flex justify-center bg-[#e4e4e1] sm:h-screen">
-          <FilterProductsMenu />
-          <FilterProductsMobile />
+      <div className="flex flex-col sm:flex-row">
+        <div className="sm:w-52 flex sm:justify-center  bg-[#e4e4e1] sm:h-screen">
+          <div className="sm:hidden block">
+            <FilterProductsMobile />
+          </div>
+          <div className="hidden sm:block">
+            <FilterProductsMenu />
+          </div>
         </div>
         <div className="">
           <div

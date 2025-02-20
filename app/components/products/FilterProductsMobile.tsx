@@ -1,55 +1,50 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
 import React from "react";
-import FilterPrice from "./FilterPrice";
-import FilterProducts from "./FilterProducts";
-import FilterPriceBrand from "./FilterPriceBrands";
-import FilterProductsBrand from "./FilterProductsBrand";
-import FilterGender from "./FilterGenderBrand";
+
+import { Menu, MenuItem } from "@mui/material";
+import FilterProductsMenu from "./FilterProductsMenu";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const FilterProductsMobile = () => {
-  const searchParams = useSearchParams();
-  const genderParams = searchParams?.get("gender");
-  const categoryParams = searchParams?.get("category");
-  const priceParams = searchParams?.get("price");
-  const brandParams = searchParams?.get("brand");
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-  if (brandParams) {
-    return (
-      <div className="sm:hidden flex flex-row gap-x-4 mt-3">
-        <FilterPriceBrand
-          genderParam={genderParams!}
-          categoryParam={categoryParams!}
-          brandParam={brandParams}
-        />
-
-        <FilterProductsBrand
-          genderParam={genderParams!}
-          priceParam={priceParams!}
-          brandParam={brandParams}
-        />
-        <FilterGender
-          genderParam={genderParams!}
-          priceParam={priceParams!}
-          brandParam={brandParams}
-          categoryParam={categoryParams!}
-        />
-      </div>
-    );
-  } else {
-    return (
-      <div className="sm:hidden flex flex-row gap-x-4 mt-3">
-        <FilterPrice
-          genderParam={genderParams!}
-          categoryParam={categoryParams!}
-        />
-
-        <FilterProducts genderParam={genderParams!} />
-        <FilterGender genderParam={genderParams!} />
-      </div>
-    );
-  }
+  return (
+    <div className="my-1">
+      <button
+        id="basic-button"
+        className="flex ml-10 items-center gap-x-1"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        <h1 className="font-semibold text-xl">Filter</h1>
+        {open ? <FaChevronUp /> : <FaChevronDown />}
+      </button>
+      <Menu
+        id="basic-menu"
+        className="w-full"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+      >
+        <MenuItem>
+          <FilterProductsMenu />
+        </MenuItem>
+      </Menu>
+    </div>
+  );
 };
 
 export default FilterProductsMobile;

@@ -18,7 +18,7 @@ const FilterProductsMenu = () => {
 
   if (brandParams) {
     return (
-      <div className="mr-4 mt-8 hidden sm:block">
+      <div className="mr-4 mt-8">
         <FilterPriceBrand
           genderParam={genderParams!}
           categoryParam={categoryParams!}
@@ -40,7 +40,7 @@ const FilterProductsMenu = () => {
     );
   } else {
     return (
-      <div className="mr-4 mt-8 sm:block hidden">
+      <div className="mr-4 mt-8">
         <FilterPrice
           genderParam={genderParams!}
           categoryParam={categoryParams!}
