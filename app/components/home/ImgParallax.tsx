@@ -37,7 +37,7 @@ const ImgParallax = () => {
   return (
     <div ref={container} className="relative h-screen  bg-custom-color ">
       <div className="mt-20 absolute left-20 text-5xl font-bold">
-        <h1>Lotano's</h1>
+        <h1>Lotano&apos;s</h1>
         <h1>new collection</h1>
       </div>
 
