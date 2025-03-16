@@ -36,7 +36,7 @@ const FilterPrice = ({
         onClick={() => handleAccordion()}
         className="flex items-center gap-x-1  justify-between"
       >
-        <h1 className="font-semibold text-lg text-nowrap">Price</h1>
+        <h1 className="font-semibold text-xl text-nowrap">Price</h1>
         {accordionOpen ? (
           <FaChevronUp />
         ) : (

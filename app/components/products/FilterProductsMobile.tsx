@@ -2,47 +2,34 @@
 
 import React from "react";
 
-import { Menu, MenuItem } from "@mui/material";
+import { Drawer, Menu, MenuItem } from "@mui/material";
 import FilterProductsMenu from "./FilterProductsMenu";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaPlus } from "react-icons/fa";
 
 const FilterProductsMobile = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
   };
 
   return (
-    <div className="my-1">
+    <div className="p-2">
       <button
-        id="basic-button"
-        className="flex ml-10 items-center gap-x-1"
-        aria-controls={open ? "basic-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        onClick={handleClick}
+        className="ml-5 text-2xl gap-2 flex items-center font-semibold"
+        onClick={toggleDrawer(true)}
       >
-        <h1 className="font-semibold text-xl">Filter</h1>
-        {open ? <FaChevronUp /> : <FaChevronDown />}
+        Filter <FaPlus size={18} />
       </button>
-      <Menu
-        id="basic-menu"
-        className="w-full"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-      >
-        <MenuItem>
-          <FilterProductsMenu />
-        </MenuItem>
-      </Menu>
+      <Drawer open={open} onClose={toggleDrawer(false)}>
+        <div className="w-[50vw] bg-[#e4e4e1] p-5 flex flex-col gap-y-3">
+          <h1 className="text-2xl font-bold">Filter options</h1>
+
+          <div>
+            <FilterProductsMenu />
+          </div>
+        </div>
+      </Drawer>
     </div>
   );
 };

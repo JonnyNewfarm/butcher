@@ -50,7 +50,7 @@ const FilterGender = ({
         onClick={() => handleAccordion()}
         className="flex justify-between gap-x-1 items-center"
       >
-        <h1 className="font-semibold text-lg">Gender</h1>
+        <h1 className="font-semibold text-xl">Gender</h1>
         {accordionOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       <div

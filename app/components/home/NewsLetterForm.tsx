@@ -52,7 +52,7 @@ const NewsLetterForm = () => {
       }}
     >
       <input
-        className="border-[1px] border-stone-800 px-2 py-2 rounded-xl w-full"
+        className="border-[1px] border-stone-800 px-2 py-2 rounded-lg w-full"
         id="newsInput"
         name="newsInput"
         placeholder="Email"

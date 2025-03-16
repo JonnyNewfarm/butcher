@@ -27,7 +27,7 @@ const Button = ({
       onClick={onClick}
       className={`
         
-        rounded-xl
+        rounded-lg
         hover:opacity-80
         transition
         w-[100%]

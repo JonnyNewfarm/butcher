@@ -37,7 +37,9 @@ const CartItems = ({ item }: CartItemsProps) => {
           </div>
         </Link>
         <div className="flex flex-col justify-between">
-          <Link href={`/product/${item.id}`}>{truncateText(item.name)}</Link>
+          <Link className="font-bold" href={`/product/${item.id}`}>
+            {truncateText(item.name)}
+          </Link>
           <div className="w-[70px]">
             <button
               className="underline"

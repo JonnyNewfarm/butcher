@@ -11,7 +11,11 @@ interface DropdownMenuProps {
 }
 
 const DropdownBrand = ({ category, gender, brands }: DropdownMenuProps) => {
-  return <Link href={`/products?brand=${brands}`}>{category}</Link>;
+  return (
+    <Link className="hover:underline" href={`/products?brand=${brands}`}>
+      {category}
+    </Link>
+  );
 };
 
 export default DropdownBrand;

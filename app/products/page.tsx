@@ -20,12 +20,22 @@ const ProductsPage = async ({ searchParams }: HomeProps) => {
 
   return (
     <>
-      <div className="flex justify-center items-center text-lg font-semibold text-white bg-stone-600 shadow-md py-1">
+      <div className="flex justify-center items-center text-lg font-semibold text-white bg-stone-600 py-1">
         Free shipping in February
       </div>
+
+      <div className="flex  items-center  text-lg font-semibold h-12  bg-[#e4e4e1] py-1">
+        <div className="absolute left-[15vw] text-stone-900 items-center flex gap-x-5">
+          <h1 className="flex items-center">{searchParams.gender} </h1>
+
+          <h1 className="flex items-center">{searchParams.category} </h1>
+          <h1>{searchParams.brand}</h1>
+        </div>
+      </div>
+
       <div className="flex flex-col sm:flex-row">
-        <div className="sm:w-52 flex sm:justify-center  bg-[#e4e4e1] sm:h-screen">
-          <div className="sm:hidden block">
+        <div className="sm:w-52 flex sm:justify-center   bg-[#e4e4e1] sm:h-screen">
+          <div className="sm:hidden block ">
             <FilterProductsMobile />
           </div>
           <div className="hidden sm:block">

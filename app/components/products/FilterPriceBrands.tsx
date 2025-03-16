@@ -50,7 +50,7 @@ const FilterPriceBrand = ({
         onClick={() => handleAccordion()}
         className="flex  justify-between items-center gap-x-1"
       >
-        <h1 className="font-semibold text-lg">Price</h1>
+        <h1 className="font-semibold text-xl">Price</h1>
         {accordionOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       <div

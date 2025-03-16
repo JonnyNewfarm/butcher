@@ -12,7 +12,10 @@ interface DropdownMenuProps {
 
 const DropdownMenu = ({ category, gender }: DropdownMenuProps) => {
   return (
-    <Link href={`/products?gender=${gender}&category=${category}`}>
+    <Link
+      className="hover:underline"
+      href={`/products?gender=${gender}&category=${category}`}
+    >
       {category}
     </Link>
   );

@@ -45,9 +45,9 @@ const FilterProductsBrand = ({
     <div className="sm:py-2">
       <button
         onClick={() => handleAccordion()}
-        className="flex justify-between items-center gap-x-1"
+        className="flex  items-center gap-x-1"
       >
-        <h1 className="font-semibold text-nowrap text-lg">Category</h1>
+        <h1 className="font-semibold text-nowrap text-xl">Category</h1>
         {accordionOpen ? <FaChevronUp /> : <FaChevronDown />}
       </button>
       <div

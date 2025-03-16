@@ -17,7 +17,7 @@ const CartCounter = () => {
   };
   return (
     <div
-      className="relative cursor-pointer "
+      className="relative cursor-pointer"
       onClick={() => router.push("/cart")}
     >
       <div className="text-3xl">

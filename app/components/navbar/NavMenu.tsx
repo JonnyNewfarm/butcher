@@ -20,7 +20,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
   }, []);
   return (
     <>
-      <div className="relative z-30">
+      <div className="relative mr-10 lg:mr-0">
         <div onClick={OpenMenu}>
           <CiUser cursor={"pointer"} strokeWidth={"0.5px"} size={25} />
 
@@ -38,12 +38,13 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
             flex
             flex-col
             cursor-pointer
+            
 
             
             "
             >
               {currentUser ? (
-                <div>
+                <div className="mr-20">
                   <Link href={"/orders"}>
                     <MenuItem onClick={OpenMenu}>Your orders</MenuItem>
                   </Link>

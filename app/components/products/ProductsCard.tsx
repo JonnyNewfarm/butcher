@@ -49,11 +49,13 @@ const ProductsCard = ({ data }: ProductCardProps) => {
             alt={data.name}
           />
         </div>
-        <div className="mt-[-10px]">{truncateText(data.name)}</div>
+        <div className="mt-[-20px] z-10 text-lg font-semibold">
+          {truncateText(data.name)}
+        </div>
 
         <div className="font-semibold">{formatPrice(data.price)}</div>
 
-        <div className="border-[2px] border-custom-color-secondary py-2 px-4 rounded-xl text-nowrap">
+        <div className="border-[2px] border-custom-color-secondary py-2 px-4 rounded-lg text-nowrap">
           View more
         </div>
       </div>
