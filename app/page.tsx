@@ -10,6 +10,7 @@ import Link from "next/link";
 import ImageCollection from "./components/home/ImageCollection";
 import ScrollSection from "./components/ScrollSection";
 import ProductCardContainer from "./components/home/ProductCardContainer";
+import ImgParallax from "./components/home/ImgParallax";
 
 export default async function Home() {
   const products = await getProductByBrand();
@@ -20,7 +21,7 @@ export default async function Home() {
         <div className="w-full flex justify-center sm:justify-start lg:ml-52 md:ml-28 sm:ml-20 h-full align-middle sm:items-center">
           <div className="mt-[35px] [@media(min-width:374px)]:mt-[20px] [@media(min-width:389px)]:mt-[65px]">
             <h1 className="font-extrabold text-3xl ml-1 -mb-3">By </h1>
-            <h1 className="text-9xl  font-extrabold">Dormo</h1>
+            <h1 className="text-8xl  font-extrabold">Dormo</h1>
             <div className="h-[2px] w-full bg-black" />
 
             <h1 className="font-extrabold text-7xl mb-4 ml-1">New in</h1>
@@ -39,6 +40,7 @@ export default async function Home() {
       </Container>
       <div className="w-full flex flex-col ">
         <CategorySection />
+        <ImgParallax />
 
         <div className="flex flex-col bg-gradient-to-r from-[#eaeae8] to-[#d8d8d6] lg:flex-row md:justify-between md:items-center">
           <ImageSliderSection />
