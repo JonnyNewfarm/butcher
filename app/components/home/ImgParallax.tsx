@@ -50,7 +50,7 @@ const ImgParallax = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.4,
+        delay: 0.3,
       },
     },
   };

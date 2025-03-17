@@ -18,21 +18,18 @@ const HorizontalScroll = () => {
       const width = window.innerWidth;
 
       if (width >= 1024) {
-        setDim("-80%"); // Large screens (1024px and above)
+        setDim("-80%");
       } else if (width >= 768) {
-        setDim("-200%"); // Medium screens (768px to 1023px)
+        setDim("-200%");
       } else {
-        setDim("-350%"); // Small screens (below 768px)
+        setDim("-250%");
       }
     };
 
-    // Initial update
     updateDim();
 
-    // Run on window resize
     window.addEventListener("resize", updateDim);
 
-    // Cleanup listener
     return () => {
       window.removeEventListener("resize", updateDim);
     };
@@ -55,8 +52,31 @@ const HorizontalScroll = () => {
     { src: scroll6, title: "Qualcuno" },
   ];
 
+  const FadeInAnimation = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.3,
+      },
+    },
+  };
+
   return (
     <div ref={containerRef} className="h-[400vh] bg-stone-900">
+      <motion.h1
+        variants={FadeInAnimation}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        className="text-white absolute top-8 left-10 text-5xl font-bold"
+      >
+        Our brands
+      </motion.h1>
       <div className="h-screen  overflow-hidden sticky top-0 flex justify-start items-center p-6">
         <motion.div style={{ x }} className="flex gap-x-8">
           {images.map((image, i) => (

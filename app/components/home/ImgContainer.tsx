@@ -15,7 +15,7 @@ const ImgContainer = ({ src, title, link }: ImgContainerProps) => {
       <Image
         placeholder="blur"
         loading="lazy"
-        className="object-cover w-[300px] h-[500px]"
+        className="object-cover w-[300px] h-[450px]"
         alt="image"
         src={src}
       />
