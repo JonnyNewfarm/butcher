@@ -24,7 +24,7 @@ export default async function RootLayout({
     <html
       style={{ scrollbarWidth: "thin" }}
       lang="en"
-      className=" bg-custom-color overflow-x-hidden"
+      className=" bg-custom-color"
     >
       <body className={poppins.className}>
         <Toaster
@@ -36,7 +36,7 @@ export default async function RootLayout({
           }}
         />
         <ProductCartProvider>
-          <div className="flex flex-col min-h-screen">
+          <div className="flex relative flex-col min-h-screen">
             <NavBar />
 
             <main className="flex-grow">{children}</main>
