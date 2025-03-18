@@ -73,7 +73,7 @@ const HorizontalScroll = () => {
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="text-white absolute top-5 sm:top-8 left-10 text-4xl sm:text-5xl font-bold"
+        className="text-white hidden sm:block absolute top-5 sm:top-8 left-10 text-4xl sm:text-5xl font-bold"
       >
         Our brands
       </motion.h1>
