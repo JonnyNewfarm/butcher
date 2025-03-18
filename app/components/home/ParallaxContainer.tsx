@@ -20,7 +20,3 @@ const Section1 = () => {
 const Section2 = () => {
   return <ImgParallax />;
 };
-
-const Section3 = () => {
-  return <ImgParallax />;
-};

@@ -39,7 +39,7 @@ export default async function RootLayout({
           <div className="flex relative flex-col min-h-screen">
             <NavBar />
 
-            <main className="flex-grow">{children}</main>
+            <main className="flex-grow overflow-clip">{children}</main>
           </div>
           <Footer />
         </ProductCartProvider>
