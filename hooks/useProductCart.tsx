@@ -1,4 +1,3 @@
-"use client";
 import { ProductType } from "@/app/components/products/ProductDetails";
 
 import {

@@ -64,14 +64,14 @@ const Category = ({ label, href, gender, menuItems }: CategoryProps) => {
           <div className="px-10 pt-4 mb-8 flex flex-row items-center justify-center pb-4 ">
             <Link
               href={`/products?gender=${label}`}
-              className={`relative hover:text-stone-900  cursor-pointer
+              className={`relative   cursor-pointer
    
     `}
             >
               {label}
               <span
                 style={{ transform: showFlyOut ? "scaleX(1)" : "scaleX(0)" }}
-                className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-full bg-stone-500 transition-transform duration-300 ease-out"
+                className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-full bg-white transition-transform duration-300 ease-out"
               />
             </Link>
           </div>
@@ -124,14 +124,14 @@ const Category = ({ label, href, gender, menuItems }: CategoryProps) => {
         >
           <div className="px-10 pt-4 mb-8 flex flex-row  pb-4 ">
             <div
-              className={`relative hover:text-stone-900  cursor-pointer
+              className={`relative   cursor-pointer
  
   `}
             >
               {label}
               <span
                 style={{ transform: showFlyOut ? "scaleX(1)" : "scaleX(0)" }}
-                className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left rounded-full bg-stone-500 transition-transform duration-300 ease-out"
+                className="absolute bg-white -bottom-2 -left-2 -right-2 h-1 origin-left rounded-full white transition-transform duration-300 ease-out"
               />
             </div>
           </div>

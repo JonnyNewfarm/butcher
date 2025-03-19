@@ -26,8 +26,6 @@ export default async function Home() {
 
       <ParallaxContainer />
       <CategorySection />
-
-      <NewsLetter />
     </ScrollSection>
   );
 }

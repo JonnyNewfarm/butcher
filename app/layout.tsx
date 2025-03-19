@@ -20,6 +20,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getLoggedInUser();
+
   return (
     <html
       style={{ scrollbarWidth: "thin" }}
@@ -37,7 +39,7 @@ export default async function RootLayout({
         />
         <ProductCartProvider>
           <div className="flex relative flex-col min-h-screen">
-            <NavBar />
+            <NavBar currentUser={currentUser} />
 
             <main className="flex-grow overflow-clip">{children}</main>
           </div>

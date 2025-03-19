@@ -11,9 +11,9 @@ const Categories = () => {
   return (
     <div className="hidden lg:block">
       <div className="flex justify-center">
-        <div className="bg-opacity-0  lg:mt-[-50px] h-12  w-[500px]">
+        <div className="bg-opacity-0  lg:mt-[-58px] h-12  w-[500px]">
           <div
-            className={`flex flex-row text-stone-900 text-[17px]  items-center justify-center`}
+            className={`flex flex-row  text-lg  items-center justify-center`}
           >
             {navMenuItems.map((item) => (
               <Category

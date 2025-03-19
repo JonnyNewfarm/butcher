@@ -27,7 +27,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
           {isOpen && (
             <div
               className="absolute
-            rounded-xl
+            rounded-lg
             shadow-lg
             w-[170px]
             bg-white
@@ -44,7 +44,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
             "
             >
               {currentUser ? (
-                <div className="mr-20">
+                <div className=" z-40">
                   <Link href={"/orders"}>
                     <MenuItem onClick={OpenMenu}>Your orders</MenuItem>
                   </Link>
@@ -59,7 +59,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
                   </MenuItem>
                 </div>
               ) : (
-                <div>
+                <div className="z-40">
                   <Link href={"/login"}>
                     <MenuItem onClick={OpenMenu}>Log in</MenuItem>
                   </Link>

@@ -1,5 +1,4 @@
 "use client";
-
 import { CartContextProvider } from "@/hooks/useProductCart";
 
 interface CartProviderProps {

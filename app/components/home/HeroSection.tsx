@@ -1,56 +1,67 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 const HeroSection = () => {
-  return (
-    <div className="w-full sticky top-0 h-[100vh] sm:bg-[url('/small-hero.jpg')] bg-[url('/mobilehero2.jpg')] md:bg-[url('/medium-hero.jpg')] lg:bg-[url('/coolbg.jpg')] bg-cover">
-      <div className="w-full flex justify-center sm:justify-start lg:ml-52 md:ml-28 sm:ml-20 h-full align-middle sm:items-center">
-        <div className="mt-[35px] tracking-tight uppercase [@media(min-width:374px)]:mt-[20px] [@media(min-width:389px)]:mt-[65px]">
-          <motion.h1
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-            className="font-bold text-3xl ml-1 -mb-3"
-          >
-            By{" "}
-          </motion.h1>
-          <motion.h1
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.05 }}
-            className="text-8xl  font-bold"
-          >
-            Dormo
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-            className="h-[2px] w-full bg-black"
-          />
+  const { scrollY } = useScroll();
 
-          <motion.h1
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.15 }}
-            className="font-extrabold text-7xl mb-4 ml-1"
-          >
-            New in
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Link
-              href={"/products?brand=Dormo"}
-              className="border-[2px] [@media(min-width:374px)]:py-2 [@media(min-width:389px)]:py-3  max-w-36 text-center text-nowrap border-black py-3 px-5 font-semibold text-lg mt-6 bg-stone-900 text-white rounded-lg hover:bg-slate-900/90"
-            >
-              Shop now
-            </Link>
-          </motion.div>
+  // Move text in opposite directions
+  const xText1 = useTransform(scrollY, [0, 300], [0, -100]); // Moves left
+
+  return (
+    <div className="w-full sticky top-0 h-[100vh] overflow-hidden">
+      <Image
+        fill
+        priority
+        className="object-cover hidden md:block"
+        alt="New Dormo Collection"
+        src="/heroimg3.jpg"
+      />
+
+      <Image
+        fill
+        priority
+        className="object-cover md:hidden"
+        alt="New Dormo Collection"
+        src="/heroimg1.jpeg"
+      />
+      <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white bg-stone-900/5">
+        <div className="relative md:hidden  text-nowrap flex gap-x-2 mt-[50vh] sm:gap-x-10 uppercase text-4xl sm:text-5xl font-bold tracking-tight">
+          <motion.h1 style={{ x: xText1 }}>by Dormo</motion.h1>
+          <motion.h1 style={{ x: xText1 }}>-</motion.h1>
+          <motion.h1 style={{ x: xText1 }}>New in</motion.h1>
+        </div>
+        <Link
+          className="text-2xl md:hidden font-semibold border-4 border-white py-2 px-5 mt-4 sm:mt-8"
+          href="/products?brand=Dormo"
+          aria-label="Shop Dormo Collection"
+        >
+          Shop now
+        </Link>
+      </div>
+      <div className="w-full h-full hidden md:block">
+        <div className="absolute -top-1  inset-0 flex flex-col justify-start z-10 text-white bg-stone-900/15">
+          <div className="relative ml-[10vw]  text-nowrap flex flex-col gap-x-2 mt-[50vh] sm:gap-x-10 uppercase text-8xl font-bold tracking-tight">
+            <motion.h1 className="text-3xl" style={{ x: xText1 }}>
+              by
+            </motion.h1>
+            <motion.h1 style={{ x: xText1 }}>Dormo</motion.h1>
+
+            <motion.h1 className="text-6xl" style={{ x: xText1 }}>
+              New in
+            </motion.h1>
+            <motion.div style={{ x: xText1 }}>
+              <Link
+                className="text-2xl w-[160px] hidden md:block font-semibold border-4 border-white py-2 px-5 mt-3"
+                href="/products?brand=Dormo"
+                aria-label="Shop Dormo Collection"
+              >
+                Shop now
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
