@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="h-[420px] p-14 sticky top-[calc(100vh-420px)]">
           <div className="flex flex-row gap-x-11 text-xl">
             <div className="flex flex-col">
-              <h1 className="text-3xl text-white/60">Categories</h1>
+              <h1 className="text-2xl text-white/60">Categories</h1>
               <h1 className="text-2xl text-white/60 mb-3">Men</h1>
               <Link href={"products?gender=Men&category=Vintage"}>Vintage</Link>
               <Link href={"products?gender=Men&category=Sport"}>Sport</Link>
@@ -25,7 +25,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col">
-              <h1 className="text-3xl text-white/60">Categories</h1>
+              <h1 className="text-2xl text-white/60">Categories</h1>
               <h1 className="text-2xl text-white/60 mb-3">Women</h1>
               <Link href={"products?gender=Women&category=Vintage"}>
                 Vintage
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
 
           <div className="mt-10 mb-10 text-left">
-            <h1 className="text-7xl lg:text-9xl  font-bold">Lunnettes</h1>
+            <h1 className="text-6xl lg:text-9xl  font-bold">Lunnettes</h1>
             <h1>Created by - Jonny Newfarm</h1>
           </div>
         </div>
