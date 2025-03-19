@@ -1,64 +1,49 @@
-"use client";
-import React from "react";
-import Container from "../Container";
-import Footerlist from "./Footerlist";
 import Link from "next/link";
-import { MdFacebook } from "react-icons/md";
-import {
-  AiFillInstagram,
-  AiFillTwitterCircle,
-  AiFillYoutube,
-} from "react-icons/ai";
+import React from "react";
+
+import { CiInstagram } from "react-icons/ci";
+import { CiFacebook } from "react-icons/ci";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-stone-900 text-sm text-slate-200">
-      <Container>
-        <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
-          <Footerlist>
-            <h3 className="font-bold">Categories</h3>
-            <Link href="#">Men</Link>
-            <Link href="#">Women</Link>
-
-            <Link href="#">Designer</Link>
-          </Footerlist>
-          <Footerlist>
-            <h3 className="font-bold">Costumer service</h3>
-            <Link href="#">Contact us</Link>
-            <Link href="#">shipping policy</Link>
-            <Link href="#">Returns</Link>
-            <Link href="#">FAQs</Link>
-          </Footerlist>
-          <div className="w-full md:w-1/3 mb-6  md:mb-0">
-            <h3 className="font-bold">About us</h3>
-            <p className="mb-2">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque
-              saepe aut id odio ipsam facere quae, rerum animi maxime eaque,
-              laudantium incidunt earum iure, deserunt est expedita nulla harum
-              vel.
-            </p>
-            <p>&copy; {new Date().getFullYear()} Shades. All rights reserved</p>
-          </div>
-          <Footerlist>
-            <h3 className="font-bold">Follow Shades at</h3>
-            <div className="flex gap-2">
-              <Link href="#">
-                <MdFacebook size={24} />
-              </Link>
-              <Link href="#">
-                <AiFillTwitterCircle size={24} />
-              </Link>
-              <Link href="#">
-                <AiFillInstagram size={24} />
-              </Link>
-              <Link href="#">
-                <AiFillYoutube size={24} />
+    <div
+      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+      className=" text-white relative h-[420px]    bg-stone-700"
+    >
+      <div className="relative  h-[calc(100vh+420px)] -top-[100vh] bg-stone-700   flex-col justify-start">
+        <div className="h-[420px] p-14 sticky top-[calc(100vh-420px)]">
+          <div className="flex flex-row gap-x-11 text-xl">
+            <div className="flex flex-col">
+              <h1 className="text-3xl text-white/60">Categories</h1>
+              <h1 className="text-2xl text-white/60 mb-3">Men</h1>
+              <Link href={"products?gender=Men&category=Vintage"}>Vintage</Link>
+              <Link href={"products?gender=Men&category=Sport"}>Sport</Link>
+              <Link href={"products?gender=Men&category=Designer"}>
+                Designer
               </Link>
             </div>
-          </Footerlist>
+
+            <div className="flex flex-col">
+              <h1 className="text-3xl text-white/60">Categories</h1>
+              <h1 className="text-2xl text-white/60 mb-3">Women</h1>
+              <Link href={"products?gender=Women&category=Vintage"}>
+                Vintage
+              </Link>
+              <Link href={"products?gender=Women&category=Sport"}>Sport</Link>
+              <Link href={"products?gender=Women&category=Designer"}>
+                Designer
+              </Link>
+            </div>
+          </div>
+
+          <div className="mt-10 mb-10 text-left">
+            <h1 className="text-7xl lg:text-9xl  font-bold">Lunnettes</h1>
+            <h1>Created by - Jonny Newfarm</h1>
+          </div>
         </div>
-      </Container>
-    </footer>
+      </div>
+    </div>
   );
 };
 

@@ -14,6 +14,7 @@ import ImgParallax from "./components/home/ImgParallax";
 import ParallaxContainer from "./components/home/ParallaxContainer";
 import HeroSection from "./components/home/HeroSection";
 import HeroContainer from "./components/home/HeroContainer";
+import ScrollText from "./components/home/ScrollText";
 
 export default async function Home() {
   const products = await getProductByBrand();
@@ -28,11 +29,6 @@ export default async function Home() {
 
       <ParallaxContainer />
       <CategorySection />
-
-      <div className="flex flex-col bg-gradient-to-r from-[#eaeae8] to-[#d8d8d6] lg:flex-row md:justify-between md:items-center">
-        <ImageSliderSection />
-        <ImageCollection />
-      </div>
 
       <NewsLetter />
     </ScrollSection>

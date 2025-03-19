@@ -22,7 +22,7 @@ const NavBar = async () => {
               href="/"
               className="font-extrabold text-2xl lg:ml-10  text-stone-800"
             >
-              Shades
+              LUNNETTES
             </Link>
 
             <div className="flex text-slate-800 items-center gap-8 md:gap-10">

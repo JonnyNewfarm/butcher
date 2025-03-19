@@ -100,7 +100,7 @@ const ImgParallax = () => {
       <div className="text-3xl z-10 absolute bottom-12 sm:left-20 font-bold">
         <Link
           className="border-[3px] rounded-lg bg-white border-stone-900 px-4 py-2"
-          href={""}
+          href={"/products?brand=Lotano"}
         >
           Wiew more
         </Link>
