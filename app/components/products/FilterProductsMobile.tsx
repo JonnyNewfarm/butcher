@@ -16,14 +16,14 @@ const FilterProductsMobile = () => {
   return (
     <div className="p-2">
       <button
-        className="ml-5 text-2xl gap-2 flex items-center font-semibold"
+        className="ml-5 text-xl gap-2 flex items-center"
         onClick={toggleDrawer(true)}
       >
         Filter <FaPlus size={18} />
       </button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         <div className="w-[50vw] bg-[#e4e4e1] p-5 flex flex-col gap-y-3">
-          <h1 className="text-2xl font-bold">Filter options</h1>
+          <h1 className="text-2xl font-bold text-nowrap">Filter options</h1>
 
           <div>
             <FilterProductsMenu />
