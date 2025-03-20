@@ -4,7 +4,7 @@ import HorizontalScroll from "./HorizontalScroll";
 
 const ParallaxContainer = () => {
   return (
-    <main className="relative h-[500vh]">
+    <main className="relative h-[300vh]">
       <Section1 />
       <Section2 />
     </main>
