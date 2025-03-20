@@ -20,9 +20,11 @@ const HorizontalScroll = () => {
       if (width >= 1024) {
         setDim("-80%");
       } else if (width >= 768) {
-        setDim("-200%");
+        setDim("-170%");
+      } else if (width >= 900) {
+        setDim("150%");
       } else {
-        setDim("-250%");
+        setDim("-270%");
       }
     };
 
@@ -67,7 +69,7 @@ const HorizontalScroll = () => {
   };
 
   return (
-    <div ref={containerRef} className="h-[400vh] bg-stone-900">
+    <div ref={containerRef} className="h-[200vh] bg-stone-900">
       <motion.h1
         variants={FadeInAnimation}
         initial="initial"
