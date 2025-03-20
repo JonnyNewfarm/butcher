@@ -42,8 +42,8 @@ export default async function RootLayout({
             <NavBar currentUser={currentUser} />
 
             <main className="flex-grow overflow-clip">{children}</main>
+            <Footer />
           </div>
-          <Footer />
         </ProductCartProvider>
       </body>
     </html>
