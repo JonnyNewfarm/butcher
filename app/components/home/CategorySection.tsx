@@ -1,48 +1,58 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import closeupMan from "@/public/closeupMan.jpeg.png";
-import closeupWomen from "@/public/closeupWoman.jpeg.png";
-import closeupBrands from "@/public/closeupBrands.jpeg.png";
+import category1 from "../../../public/category1.jpeg";
+import category2 from "../../../public/category2.jpeg";
+import category3 from "../../../public/category3.jpeg";
+
 import Link from "next/link";
 
 const CategorySection = () => {
   return (
-    <div className="w-full flex flex-col sm:flex-row">
-      <Link href={"/products?gender=Men"} className="relative text-center">
-        <Image className="relative" src={closeupMan} alt="man in sunglasses" />
-        <div className="absolute mt-[-110px] w-full text-center  text-custom-color font-semibold text-5xl">
-          <h1>Men</h1>
-        </div>
-      </Link>
-
-      <Link
-        href={"/products?gender=Women"}
-        className="relative text-center h-[80%]"
+    <div className="w-full border-dashed border-t-[1px] border-black flex justify-center items-center">
+      <div
+        className="
+     flex flex-col gap-x-10 gap-y-20 md:flex-row px-4 py-20"
       >
-        <Image
-          className="relative object-cover"
-          src={closeupWomen}
-          alt="woman in sunglasses"
-        />
-        <div className="absolute mt-[-110px] w-full text-center  text-custom-color font-semibold  text-5xl">
-          <h1>Women</h1>
-        </div>
-      </Link>
+        <Link href={"/products?gender=Men"}>
+          <div className="md:w-[27.5vw] relative">
+            <Image
+              className="object-cover"
+              alt="women in sunglasses"
+              src={category1}
+            />
+            <div className="absolute uppercase bottom-10 font-bold text-3xl px-5 py-2 flex justify-center text-white bg-stone-900 left-0">
+              <h1 className="">Men</h1>
+            </div>
+          </div>
+        </Link>
+        <Link href={"/products?gender=Women"}>
+          <div className="md:w-[27.5vw] relative">
+            <Image
+              className="object-cover"
+              alt="women in sunglasses"
+              src={category2}
+            />
 
-      <Link
-        href={"/products?brand=Dormo"}
-        className="relative text-center h-[80%]"
-      >
-        <Image
-          className="relative object-cover"
-          src={closeupBrands}
-          alt="sunglasses"
-        />
-        <div className="absolute mt-[-110px] w-full text-center  text-custom-color font-semibold text-5xl">
-          <h1>Brands</h1>
-        </div>
-      </Link>
+            <div className="absolute uppercase bottom-10 font-bold text-3xl px-5 py-2 flex justify-center text-white bg-stone-900 left-0">
+              <h1 className="">Women</h1>
+            </div>
+          </div>
+        </Link>
+        <Link href={"/products?brand=Dormo"}>
+          <div className="md:w-[27.5vw] relative">
+            <Image
+              className="object-cover"
+              alt="women in sunglasses"
+              src={category3}
+            />
+
+            <div className="absolute uppercase bottom-10 font-bold text-3xl px-5 py-2 flex justify-center text-white bg-stone-900 left-0">
+              <h1 className="">brands</h1>
+            </div>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
