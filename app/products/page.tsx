@@ -26,8 +26,8 @@ const ProductsPage = async ({ searchParams }: HomeProps) => {
       </div>
 
       <div className="flex flex-col sm:flex-row">
-        <div className="sm:w-52 flex sm:justify-center   bg-[#e4e4e1] sm:h-screen">
-          <div className="hidden sm:block">
+        <div className="sm:w-52 flex sm:justify-center   bg-[#e4e4e1] sm:min-h-screen">
+          <div className="hidden sm:block sm:h-full">
             <FilterProductsMenu />
           </div>
         </div>
