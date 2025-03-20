@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import HeroSection from "./HeroSection";
 import Link from "next/link";
@@ -17,6 +17,7 @@ export default HeroContainer;
 
 const HeroSection2 = () => {
   const containerRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -25,16 +26,28 @@ const HeroSection2 = () => {
 
   const textY = useTransform(scrollYProgress, [0, 0.6], ["0%", "-120%"]);
 
+  useEffect(() => {
+    // Ensure autoplay works correctly on iOS
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true; // Ensure it's muted for autoplay to work
+      video.play().catch((err) => console.error("Autoplay failed:", err));
+    }
+  }, []);
+
   return (
     <div className="relative">
       <div ref={containerRef} className=" h-screen w-full z-10">
         <video
-          src="/video.mp4"
+          ref={videoRef}
           autoPlay
           muted
           loop
+          playsInline
           className="w-full h-full object-cover"
-        />
+        >
+          <source src="/video.mp4" type="video/mp4" />
+        </video>
 
         <div className="absolute inset-0 bg-stone-900/20" />
 
