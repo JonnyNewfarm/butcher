@@ -108,6 +108,7 @@ const NavMenu = ({ currentUser }: NavMenuProps) => {
             w-[170px]
             bg-white
             overflow-hidden
+            text-stone-900
             right-0
             top-12
             text-sm

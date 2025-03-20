@@ -22,7 +22,7 @@ const SearchBarMobile = () => {
             id="search"
             placeholder="Explore"
             value={searchQuery}
-            className={`p-2  h-9    rounded-lg  z-50 sm:l sm:mb-[-8px] border-stone-400  md:focus:outline-none focus:border-[0.5px] focus:border-stone-600    `}
+            className={`p-2  h-9   z-50 sm:l sm:mb-[-8px] border-stone-400  md:focus:outline-none focus:border-[0.5px] focus:border-stone-600    `}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </form>

@@ -30,7 +30,7 @@ const FilterProductsMobile = () => {
         <CiMenuBurger size={25} />
       </button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
-        <div className="w-[60vw] bg-[#e4e4e1] p-5 flex flex-col gap-y-5">
+        <div className="w-[70vw] sm:w-[60vw] bg-[#e4e4e1] p-5 flex flex-col gap-y-5">
           <h1 className="text-3xl font-bold">Lunnettes</h1>
           <div className="flex flex-col justify-start">
             <h1 className="font-semibold text-lg">Search</h1>
