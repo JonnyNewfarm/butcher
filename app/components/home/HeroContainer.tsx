@@ -59,7 +59,7 @@ const HeroSection2 = () => {
           <h1 className="text-center uppercase">in store</h1>
         </motion.div>
 
-        <div className="absolute bottom-16 sm:transform-none -translate-x-1/2 left-1/2  sm:left-14 z-10 text-white text-3xl font-bold">
+        <div className="absolute bottom-16 text-nowrap sm:transform-none -translate-x-1/2 left-1/2  sm:left-14 z-10 text-white text-3xl font-bold">
           <Link
             className="border-[3px] text-nowrap uppercase border-white py-2 px-5"
             href={"/products"}
