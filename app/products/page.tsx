@@ -32,7 +32,7 @@ const ProductsPage = async ({ searchParams }: HomeProps) => {
           </div>
         </div>
         <div className="w-full">
-          <div className="flex bg-[#e4e4e1]   items-center  text-lg font-semibold h-12   py-1">
+          <div className="flex  bg-white  items-center  text-lg font-semibold h-12   py-1">
             <div className="pl-5 justify-between w-full pr-5   text-stone-900 items-center flex gap-x-5">
               <SetTags />
               <div className="sm:hidden block ">
