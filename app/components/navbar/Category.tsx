@@ -124,7 +124,7 @@ const Category = ({ label, href, gender, menuItems }: CategoryProps) => {
         >
           <div className="px-10 pt-4 mb-8 flex flex-row  pb-4 ">
             <div
-              className={`relative   cursor-pointer
+              className={`relative cursor-pointer
  
   `}
             >
